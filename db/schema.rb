@@ -64,9 +64,9 @@ ActiveRecord::Schema.define(version: 2022_02_04_211442) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "boards", "workspaces"
-  add_foreign_key "task_lists", "boards"
-  add_foreign_key "tasks", "task_lists"
-  add_foreign_key "workspace_users", "users"
-  add_foreign_key "workspace_users", "workspaces"
+  add_foreign_key "boards", "workspaces", on_delete: :cascade
+  add_foreign_key "task_lists", "boards", on_delete: :cascade
+  add_foreign_key "tasks", "task_lists", on_delete: :cascade
+  add_foreign_key "workspace_users", "users", on_delete: :cascade
+  add_foreign_key "workspace_users", "workspaces", on_delete: :cascade
 end

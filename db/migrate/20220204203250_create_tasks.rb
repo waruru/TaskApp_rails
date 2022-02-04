@@ -3,7 +3,7 @@ class CreateTasks < ActiveRecord::Migration[6.1]
     create_table :tasks do |t|
       t.string :title, null: false, default: ""
       t.text :memo
-      t.references :task_list, null: false, foreign_key: true
+      t.references :task_list, null: false, foreign_key: { on_delete: :cascade }
 
       t.timestamps
     end
