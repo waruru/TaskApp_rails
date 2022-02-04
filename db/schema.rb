@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_04_203250) do
+ActiveRecord::Schema.define(version: 2022_02_04_211442) do
 
   create_table "boards", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", default: "", null: false
@@ -49,6 +49,15 @@ ActiveRecord::Schema.define(version: 2022_02_04_203250) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "workspace_users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "workspace_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_workspace_users_on_user_id"
+    t.index ["workspace_id"], name: "index_workspace_users_on_workspace_id"
+  end
+
   create_table "workspaces", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", default: "", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -58,4 +67,6 @@ ActiveRecord::Schema.define(version: 2022_02_04_203250) do
   add_foreign_key "boards", "workspaces"
   add_foreign_key "task_lists", "boards"
   add_foreign_key "tasks", "task_lists"
+  add_foreign_key "workspace_users", "users"
+  add_foreign_key "workspace_users", "workspaces"
 end
