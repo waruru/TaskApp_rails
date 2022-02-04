@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2022_02_04_211442) do
 
   create_table "boards", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", default: "", null: false
-    t.bigint "workspace_id"
+    t.bigint "workspace_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["workspace_id"], name: "index_boards_on_workspace_id"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2022_02_04_211442) do
 
   create_table "task_lists", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", default: "", null: false
-    t.bigint "board_id"
+    t.bigint "board_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["board_id"], name: "index_task_lists_on_board_id"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2022_02_04_211442) do
   create_table "tasks", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title", default: "", null: false
     t.text "memo"
-    t.bigint "task_list_id"
+    t.bigint "task_list_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["task_list_id"], name: "index_tasks_on_task_list_id"
