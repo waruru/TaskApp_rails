@@ -3,11 +3,11 @@ Rails.application.routes.draw do
 
   # Userログイン状態でのパス
   authenticated :user do
-    root "top#index", as: "user_authenticated_root"
+    root "workspaces#index", as: "user_authenticated_root"
   end
 
   # User非ログイン状態でのルートパス
   root 'top#index'
 
-  resources :workspaces, only: [:index, :new, :create]
+  resources :workspaces, only: [:index, :new, :create, :show]
 end
