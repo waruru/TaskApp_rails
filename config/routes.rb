@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   # User非ログイン状態でのルートパス
   root 'top#index'
 
-  resources :workspaces, only: [:index, :new, :create, :show]
+  resources :workspaces, only: [:index, :show, :new, :create]
+  resources :boards, only: [:index, :show, :new, :create]
 end

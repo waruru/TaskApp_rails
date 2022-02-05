@@ -1,1 +1,6 @@
 <h1>Workspaces#show</h1>
+<p>ワークスペース名：<%= @workspace.name %></p>
+
+<% @boards.each do |board| %>
+  <p><%= link_to board.name, board %></p>
+<% end %>
