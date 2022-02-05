@@ -4,6 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :workspaces, through: :workspace_users
   has_many :workspace_users
+  has_many :workspaces, through: :workspace_users
 end
