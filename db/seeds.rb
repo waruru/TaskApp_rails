@@ -15,8 +15,11 @@ unless User.first
 end
 
 unless Workspace.first
-  workspace = Workspace.create(name: 'テストワークスペース')
-  board = workspace.boards.create(name: 'テストボード')
-  task_list = board.task_lists.create(name: 'テストリスト')
-  task = task_list.tasks.create(title: "テストタスク")
+  workspace = User.first.workspaces.create(name: 'テストワークスペース01')
+  board = workspace.boards.create(name: 'テストボード01')
+  task_list = board.task_lists.create(name: 'テストリスト01')
+  board.task_lists.create(name: 'テストリスト02')
+  task_list.tasks.create(title: "テストタスク01")
+  task_list.tasks.create(title: "テストタスク02")
+  task_list.tasks.create(title: "テストタスク03")
 end

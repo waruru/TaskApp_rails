@@ -1,2 +1,18 @@
 <h1>Boards#show</h1>
-<p>Find me in app/views/boards/show.html.erb</p>
+<p>ボード名：<%= @board.name %></p>
+
+<% if @board.task_lists.exists? %>
+  <ul>
+    <% @board.task_lists.each do |task_list| %>
+      <li><%= task_list.name %>
+        <% if task_list.tasks.exists? %>
+          <ul>
+            <% task_list.tasks.each do |task| %>
+              <li><%= task.title %></li>
+            <% end %>
+          </ul>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
