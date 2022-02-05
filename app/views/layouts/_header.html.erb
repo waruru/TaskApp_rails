@@ -1,0 +1,20 @@
+<header class="site-header">
+  <div class="wrapper site-header_wrapper">
+    <%= link_to 'Wobota', root_path, class: "brand" %>
+    <nav class="nav">
+      <ul class="nav_wrapper">
+        <% if user_signed_in? %>
+          <li class="nav_item"><%= link_to 'ワークスペース', workspaces_path %></li>
+          <li class="nav_item"><%= link_to 'ボード', boards_path %></li>
+          <li class="nav_item"><a href="#">Services</a></li>
+          <li class="nav_item"><a href="#">Hire us</a></li>
+          <li class="nav_item"><a href="#">Contact</a></li>
+          <li class="nav_item"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li class="nav_item"><%= link_to 'ログイン', new_user_session_path %></li>
+          <li class="nav_item"><%= link_to '登録', new_user_registration_path %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>
