@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, module: 'user/devise'
 
-  # Userログイン状態でのルートパス
+  # Userログイン状態でのパス
   authenticated :user do
     root "top#index", as: "user_authenticated_root"
   end
