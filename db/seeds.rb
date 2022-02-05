@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-unless User.first
+unless User.exists?
   User.create(
     email: "test@test.com",
     password: 'password',
@@ -14,7 +14,7 @@ unless User.first
   )
 end
 
-unless Workspace.first
+unless Workspace.exists?
   workspace = User.first.workspaces.create(name: 'テストワークスペース01')
   board = workspace.boards.create(name: 'テストボード01')
   task_list = board.task_lists.create(name: 'テストリスト01')
