@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_04_211442) do
+ActiveRecord::Schema.define(version: 2022_02_06_200426) do
+
+  create_table "board_users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "board_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["board_id"], name: "index_board_users_on_board_id"
+    t.index ["user_id"], name: "index_board_users_on_user_id"
+  end
 
   create_table "boards", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", default: "", null: false
@@ -64,6 +73,8 @@ ActiveRecord::Schema.define(version: 2022_02_04_211442) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "board_users", "boards", on_delete: :cascade
+  add_foreign_key "board_users", "users", on_delete: :cascade
   add_foreign_key "boards", "workspaces", on_delete: :cascade
   add_foreign_key "task_lists", "boards", on_delete: :cascade
   add_foreign_key "tasks", "task_lists", on_delete: :cascade
