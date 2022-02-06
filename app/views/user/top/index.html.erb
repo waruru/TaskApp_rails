@@ -1,2 +1,12 @@
 <h1>User::Top#index</h1>
-<p>Find me in app/views/user/top/index.html.erb</p>
+
+<p>ワークスペース</p>
+<% @workspaces.each do |workspace| %>
+  <p><%= link_to workspace.name, workspace %></p>
+<% end %>
+<%= link_to "ワークスペース作成", new_workspace_path %>
+
+<p>ボード</p>
+<% @boards.each do |board| %>
+  <p><%= link_to board.name, board %></p>
+<% end %>

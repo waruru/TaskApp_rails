@@ -4,3 +4,4 @@
 <% @boards.each do |board| %>
   <p><%= link_to board.name, board %></p>
 <% end %>
+<%= link_to "ボード追加", new_board_path %>
