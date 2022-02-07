@@ -2,7 +2,7 @@ class WorkspacesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @workspaces = current_user.workspaces
+    @workspaces = Workspace.all
   end
 
   def show
@@ -18,5 +18,14 @@ class WorkspacesController < ApplicationController
   end
 
   def create
+  end
+
+  def destroy
+    workspace = Workspace.find(params[:id])
+    if workspace.destroy
+      redirect_to root_path
+    else
+      render :show
+    end
   end
 end
