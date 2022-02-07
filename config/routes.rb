@@ -10,8 +10,10 @@ Rails.application.routes.draw do
 
   devise_for :users, module: 'user/devise'
 
-  resources :workspaces, only: [:index, :show, :new, :create]
-  resources :boards, only: [:index, :show, :new, :create]
+  resources :workspaces, only: [:index, :show, :new, :create, :destroy] do
+    resource :boards, only: [:new, :create]
+  end
+  resources :boards, only: [:index, :show, :destroy]
 
   namespace :user do
     get 'top/index'
