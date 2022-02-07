@@ -1,2 +1,6 @@
 <h1>Boards#new</h1>
-<p>Find me in app/views/boards/new.html.erb</p>
+<%= form_with model: @board, url: workspace_boards_path do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.submit %>
+<% end %>
