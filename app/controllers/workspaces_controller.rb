@@ -6,12 +6,13 @@ class WorkspacesController < ApplicationController
   end
 
   def show
-    @workspace = Workspace.find(params[:id])
+    @workspace = Workspace.includes(:boards, :users).find(params[:id])
     unless current_user.workspaces.include?(@workspace)
       redirect_to redirect_back(fallback_location: root_path)
     end
 
     @boards = @workspace.boards
+    @users = @workspace.users
   end
 
   def new

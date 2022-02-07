@@ -2,7 +2,13 @@
 <p>ワークスペース名：<%= @workspace.name %></p>
 <%= link_to "ワークスペース削除", @workspace, method: :delete %>
 
+<p>ボード</p>
 <% @boards.each do |board| %>
   <p><%= link_to board.name, board %></p>
 <% end %>
-<%= link_to "ボード追加", new_workspace_boards_path(@workspace) %>
+<p><%= link_to "ボード追加", new_workspace_boards_path(@workspace) %></p>
+
+<p>ユーザー</p>
+<% @users.each do |user| %>
+  <p><%= user.email %></p>
+<% end %>
