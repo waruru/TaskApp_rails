@@ -18,7 +18,7 @@ unless Workspace.exists?
   user = User.first
   workspace = user.workspaces.create(name: 'テストワークスペース01')
   board = workspace.boards.create(name: 'テストボード01')
-  BoardUser.create(user: user, workspace: workspace)
+  BoardUser.create(user: user, board: board)
   task_list = board.task_lists.create(name: 'テストリスト01')
   board.task_lists.create(name: 'テストリスト02')
   task_list.tasks.create(title: "テストタスク01")
