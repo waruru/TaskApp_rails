@@ -27,5 +27,10 @@
     <% end %>
   </ul>
 <% end %>
+<% if @users.include?(current_user) %>
+  <p><%= link_to "ボードから退出", board_board_users_path(@board), method: :delete %></p>
+<% else %>
+  <p><%= link_to "参加", board_board_users_path(@board), method: :post %></p>
+<% end %>
 
 <%= link_to "削除", @board, method: :delete %>

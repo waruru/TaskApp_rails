@@ -15,9 +15,6 @@ Rails.application.routes.draw do
   end
   resources :boards, only: [:index, :show, :destroy] do
     resources :task_lists, only: [:new, :create, :destroy]
-  end
-
-  namespace :user do
-    get 'top/index'
+    resource :board_users, only: [:create, :destroy]
   end
 end
