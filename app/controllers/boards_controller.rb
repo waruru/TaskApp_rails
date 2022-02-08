@@ -3,8 +3,9 @@ class BoardsController < ApplicationController
   end
 
   def show
-    @board = Board.includes(:task_lists, :tasks).find(params[:id])
+    @board = Board.includes(:task_lists, :tasks, :users).find(params[:id])
     @task_lists = @board.task_lists
+    @users = @board.users
   end
 
   def new

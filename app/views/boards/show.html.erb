@@ -4,7 +4,7 @@
 <% if @task_lists.exists? %>
   <ul>
     <% @task_lists.each do |task_list| %>
-      <li><%= task_list.name %>
+      <li>リスト：<%= task_list.name %>
         <% if task_list.tasks.exists? %>
           <ul>
             <% task_list.tasks.each do |task| %>
@@ -17,5 +17,14 @@
   </ul>
 <% end %>
 <p><%= link_to "リストを追加", new_board_task_list_path(@board) %></p>
+
+<p>ユーザー</p>
+<% if @users.exists? %>
+  <ul>
+    <% @users.each do |user| %>
+      <li><%= user.email %></li>
+    <% end %>
+  </ul>
+<% end %>
 
 <%= link_to "削除", @board, method: :delete %>
