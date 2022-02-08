@@ -1,9 +1,9 @@
 <h1>Boards#show</h1>
 <p>ボード名：<%= @board.name %></p>
 
-<% if @board.task_lists.exists? %>
+<% if @task_lists.exists? %>
   <ul>
-    <% @board.task_lists.each do |task_list| %>
+    <% @task_lists.each do |task_list| %>
       <li><%= task_list.name %>
         <% if task_list.tasks.exists? %>
           <ul>
@@ -16,6 +16,6 @@
     <% end %>
   </ul>
 <% end %>
-<p>リスト作成</p>
+<p><%= link_to "リストを追加", new_board_task_list_path(@board) %></p>
 
 <%= link_to "削除", @board, method: :delete %>

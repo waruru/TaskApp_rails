@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'task_lists/show'
+  get 'task_lists/new'
   # Userログイン状態でのパス
   authenticated :user do
     root "user/top#index", as: "user_authenticated_root"
@@ -13,7 +15,9 @@ Rails.application.routes.draw do
   resources :workspaces, only: [:index, :show, :new, :create, :destroy] do
     resource :boards, only: [:new, :create]
   end
-  resources :boards, only: [:index, :show, :destroy]
+  resources :boards, only: [:index, :show, :destroy] do
+    resource :task_list, only: [:new, :create, :destroy]
+  end
 
   namespace :user do
     get 'top/index'

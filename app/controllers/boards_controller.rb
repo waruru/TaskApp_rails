@@ -4,6 +4,7 @@ class BoardsController < ApplicationController
 
   def show
     @board = Board.includes(:task_lists, :tasks).find(params[:id])
+    @task_lists = @board.task_lists
   end
 
   def new
