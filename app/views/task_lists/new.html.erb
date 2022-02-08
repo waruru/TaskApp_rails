@@ -1,2 +1,7 @@
 <h1>TaskLists#new</h1>
-<p>Find me in app/views/task_lists/new.html.erb</p>
+
+<%= form_with model: @task_list, url: board_task_lists_path(params[:board_id]) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.submit %>
+<% end %>

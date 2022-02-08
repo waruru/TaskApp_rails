@@ -5,6 +5,7 @@
   <ul>
     <% @task_lists.each do |task_list| %>
       <li>リスト：<%= task_list.name %>
+        <%= link_to "削除", board_task_list_path(@board, task_list), method: :delete %>
         <% if task_list.tasks.exists? %>
           <ul>
             <% task_list.tasks.each do |task| %>
