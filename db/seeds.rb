@@ -8,6 +8,7 @@
 
 unless User.exists?
   User.create(
+    unique_id: "@test_user"
     email: "test@test.com",
     password: 'password',
     password_confirmation: 'password'
