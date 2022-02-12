@@ -6,17 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-unless User.exists?
-  User.create(
+unless Workspace.exists?
+  user = User.where(
     unique_id: "@test_user",
     email: "test@test.com",
     password: 'password',
     password_confirmation: 'password'
-  )
-end
-
-unless Workspace.exists?
-  user = User.first
+  ).first_or_create
   workspace = user.workspaces.create(name: 'テストワークスペース01')
   board = workspace.boards.create(name: 'テストボード01')
   BoardUser.create(user: user, board: board)
