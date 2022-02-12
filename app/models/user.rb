@@ -11,9 +11,14 @@ class User < ApplicationRecord
 
   # unique_id 前方一致検索
   def self.search_unique_id(keywords)
-    users = Array.new
-    keywords.each do |keyword|
-      users += User.where(["unique_id like(?)", "#{keyword}%"])
+    users = User.none
+
+    if keywords.instance_of?(Array)
+      keywords.each do |keyword|
+        users += User.where(["unique_id like(?)", "#{keyword}%"])
+      end
+    else
+      users += User.where(["unique_id like(?)", "#{keywords}%"])
     end
     return users
   end 
