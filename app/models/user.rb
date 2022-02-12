@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :boards, through: :board_users
 
   # unique_id 前方一致検索
-  def self.search_by_unique_id(keywords)
+  def self.search_unique_id(keywords)
     users = Array.new
     keywords.each do |keyword|
       users += User.where(["unique_id like(?)", "#{keyword}%"])
