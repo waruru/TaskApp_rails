@@ -1,0 +1,11 @@
+<p>複数検索を行う場合は半角空白で区切ってください</p>
+<%= form_with url: request.original_url, method: :get do |f| %>
+  <%= f.label :search, "ユーザーを検索" %>
+  <%= f.text_field :search %>
+  <%= f.submit "検索" %>
+<% end %>
+<% if @users.present? %>
+  <% @users.each do |user| %>
+    <p><%= user.unique_id %></p>
+  <% end %>
+<% end %>

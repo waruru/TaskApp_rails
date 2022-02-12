@@ -1,4 +1,10 @@
 class WorkspaceUsersController < ApplicationController
+  def new
+    if params[:search].present?
+      @users = User.search_unique_id(params[:search].split)
+    end
+  end
+
   def create
 
   end

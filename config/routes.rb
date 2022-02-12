@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   devise_for :users, module: 'user/devise'
 
   resources :workspaces, only: [:index, :show, :new, :create, :destroy] do
-    resource :workspace_users, only: [:create, :destroy]
+    resource :workspace_users, only: [:new, :create, :destroy]
     resource :boards, only: [:new, :create]
   end
   resources :boards, only: [:index, :show, :destroy] do
