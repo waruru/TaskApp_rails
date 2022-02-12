@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 2022_02_12_190413) do
     t.bigint "workspace_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id", "workspace_id"], name: "index_workspace_users_on_user_id_and_workspace_id", unique: true
     t.index ["user_id"], name: "index_workspace_users_on_user_id"
     t.index ["workspace_id"], name: "index_workspace_users_on_workspace_id"
   end

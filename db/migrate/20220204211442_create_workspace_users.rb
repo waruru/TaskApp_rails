@@ -6,5 +6,6 @@ class CreateWorkspaceUsers < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
+    add_index :workspace_users, [:user_id, :workspace_id], unique: true
   end
 end
