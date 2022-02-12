@@ -8,7 +8,7 @@ class WorkspacesController < ApplicationController
   def show
     @workspace = Workspace.includes(:boards, :users).find(params[:id])
     unless current_user.workspaces.include?(@workspace)
-      redirect_to redirect_back(fallback_location: root_path)
+      redirect_to root_path
     end
 
     @boards = @workspace.boards

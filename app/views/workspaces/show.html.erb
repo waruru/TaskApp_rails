@@ -12,3 +12,7 @@
 <% @users.each do |user| %>
   <p><%= user.email %></p>
 <% end %>
+<% if @users.include?(current_user) %>
+  <p>ユーザーを招待</p>
+  <p><%= link_to "ワークスペースから退出", workspace_workspace_users_path(@workspace, user: current_user.id), method: :delete %></p>
+<% end %>
