@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2022_02_12_190413) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["board_id"], name: "index_board_users_on_board_id"
+    t.index ["user_id", "board_id"], name: "index_board_users_on_user_id_and_board_id", unique: true
     t.index ["user_id"], name: "index_board_users_on_user_id"
   end
 
