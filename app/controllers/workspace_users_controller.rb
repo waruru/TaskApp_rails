@@ -6,7 +6,20 @@ class WorkspaceUsersController < ApplicationController
   end
 
   def create
-
+    user = User.find(params[:user])
+    workspace = Workspace.find(params[:workspace_id])
+    if workspace.users.include?(user)
+      flash[:alert] = "そのユーザーはすでに所属しています。"
+      render :new
+    else
+      workspace_user = WorkspaceUser.new(user: user, workspace: workspace)
+      if workspace_user.save
+        redirect_to workspace, notice: "#{user.unique_id} を招待しました。"
+      else
+        flash[:alert] = "招待に失敗しました。"
+        render :new
+      end
+    end 
   end
 
   def destroy

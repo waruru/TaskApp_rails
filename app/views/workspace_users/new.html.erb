@@ -6,6 +6,6 @@
 <% end %>
 <% if @users.present? %>
   <% @users.each do |user| %>
-    <p><%= user.unique_id %></p>
+    <p><%= link_to user.unique_id, workspace_workspace_users_path(params[:workspace_id], user: user), method: :post %></p>
   <% end %>
 <% end %>
