@@ -1,6 +1,5 @@
 class TaskListsController < ApplicationController
-  def show
-  end
+  before_action :authenticate_user!
 
   def new
     @task_list = TaskList.new
