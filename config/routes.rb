@@ -15,7 +15,11 @@ Rails.application.routes.draw do
     resource :boards, only: [:new, :create]
   end
   resources :boards, only: [:index, :show, :destroy] do
-    resources :task_lists, only: [:new, :create, :destroy]
+    resources :task_lists, only: [:new, :create]
     resource :board_users, only: [:create, :destroy]
+  end
+
+  resources :task_lists, only: [:destroy] do
+    resources :tasks, only: [:new, :create]
   end
 end
