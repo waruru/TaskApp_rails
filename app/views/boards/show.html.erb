@@ -23,7 +23,7 @@
 <% if @users.exists? %>
   <ul>
     <% @users.each do |user| %>
-      <li><%= user.email %></li>
+      <li><%= user.unique_id %></li>
     <% end %>
   </ul>
 <% end %>

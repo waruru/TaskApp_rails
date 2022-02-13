@@ -10,7 +10,7 @@
 
 <p>ユーザー</p>
 <% @users.each do |user| %>
-  <p><%= user.email %></p>
+  <p><%= user.unique_id %></p>
 <% end %>
 <% if @users.include?(current_user) %>
   <p><%= link_to "ユーザーを招待", new_workspace_workspace_users_path(@workspace) %></p>
