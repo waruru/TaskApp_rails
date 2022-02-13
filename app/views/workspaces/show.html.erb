@@ -1,6 +1,6 @@
 <h1>Workspaces#show</h1>
 <p>ワークスペース名：<%= @workspace.name %></p>
-<%= link_to "ワークスペース削除", @workspace, method: :delete %>
+<%= link_to "ワークスペース削除", @workspace, method: :delete, data: {confirm: "本当にワークスペースを削除しますか？"} %>
 
 <p>ボード</p>
 <% @boards.each do |board| %>
@@ -14,5 +14,5 @@
 <% end %>
 <% if @users.include?(current_user) %>
   <p><%= link_to "ユーザーを招待", new_workspace_workspace_users_path(@workspace) %></p>
-  <p><%= link_to "ワークスペースから退出", workspace_workspace_users_path(@workspace, user: current_user.id), method: :delete %></p>
+  <p><%= link_to "ワークスペースから退出", workspace_workspace_users_path(@workspace, user: current_user.id), method: :delete, data: {confirm: "本当にワークスペースから退出してよろしいですか？"} %></p>
 <% end %>
