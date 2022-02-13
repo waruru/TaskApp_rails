@@ -1,4 +1,6 @@
 class WorkspaceUsersController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     if params[:search].present?
       @users = User.search_unique_id(params[:search].split)

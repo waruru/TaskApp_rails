@@ -1,4 +1,6 @@
 class BoardUsersController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     board_user = current_user.board_users.new(board_id: params[:board_id])
     if board_user.save
