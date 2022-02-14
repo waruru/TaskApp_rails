@@ -29,7 +29,7 @@ class WorkspaceUsersController < ApplicationController
     if workspace_user.destroy
       redirect_to workspace_user.workspace and return
     else
-      redirect_to redirect_back(fallback_location: root_path) and return
+      redirect_back fallback_location: root_url and return
     end
   end
 end
