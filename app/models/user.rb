@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_many :board_users
   has_many :boards, through: :board_users
 
+  validates :unique_id, presence: true, uniqueness: true, length: {minimum: Settings.user.minimum_unique_id_length, maximum: Settings.user.maximum_unique_id_length}, format: {with: /\A[\w]+\z/}
+
   # unique_id 前方一致検索
   def self.search_unique_id(keywords)
     users = User.none
