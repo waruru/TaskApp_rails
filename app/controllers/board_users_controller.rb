@@ -1,5 +1,6 @@
 class BoardUsersController < ApplicationController
   before_action :authenticate_user!
+  before_action :confirmation_workspace
 
   def create
     board_user = current_user.board_users.new(board_id: params[:board_id])
@@ -16,6 +17,14 @@ class BoardUsersController < ApplicationController
       redirect_to board_user.board
     else
       redirect_to redirect_back(fallback_location: root_path)
+    end
+  end
+
+  private
+  def confirmation_workspace
+    board = Board.find(params[:board_id])
+    unless current_user.workspaces.include?(board.workspace)
+      redirect_to root_url, alert: "そのワークスペースは存在しません。"
     end
   end
 end
