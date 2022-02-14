@@ -59,3 +59,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # ログイン機能
 gem 'devise', '~> 4.8.1'
+
+# 定数管理
+gem 'config'
