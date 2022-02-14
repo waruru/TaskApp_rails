@@ -7,8 +7,9 @@ Rails.application.routes.draw do
   # User非ログイン状態でのルートパス
   root 'top#index'
 
-
-  devise_for :users, module: 'user/devise'
+  devise_for :users, module: 'user/devise', controllers: {
+    registrations: 'user/devise/registrations',
+  }
 
   resources :workspaces, only: [:index, :show, :new, :create, :destroy] do
     resource :workspace_users, only: [:new, :create, :destroy]
