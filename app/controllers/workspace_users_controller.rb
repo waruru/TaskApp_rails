@@ -1,5 +1,6 @@
 class WorkspaceUsersController < ApplicationController
   before_action :authenticate_user!
+  before_action :confirmation_workspace, only: [:new, :create, :destroy]
 
   def new
     if params[:search].present?
@@ -30,6 +31,14 @@ class WorkspaceUsersController < ApplicationController
       redirect_to workspace_user.workspace and return
     else
       redirect_back fallback_location: root_url and return
+    end
+  end
+
+  private
+  def confirmation_workspace
+    workspace = Workspace.find(params[:workspace_id])
+    unless current_user.workspaces.include?(workspace)
+      redirect_to root_url, alert: "そのワークスペースは存在しません。"
     end
   end
 end
