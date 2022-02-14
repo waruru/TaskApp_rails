@@ -7,7 +7,7 @@ class BoardUsersController < ApplicationController
     if board_user.save
       redirect_to board_user.board
     else
-      redirect_to redirect_back(fallback_location: root_path)
+      redirect_back fallback_location: root_url
     end
   end
 
@@ -16,7 +16,7 @@ class BoardUsersController < ApplicationController
     if board_user.destroy
       redirect_to board_user.board
     else
-      redirect_to redirect_back(fallback_location: root_path)
+      redirect_back fallback_location: root_url
     end
   end
 
