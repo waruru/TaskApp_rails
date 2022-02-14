@@ -6,6 +6,8 @@ class User::Devise::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   def new
+    @minimum_unique_id_length = Settings.user.minimum_unique_id_length
+    @maximum_unique_id_length = Settings.user.maximum_unique_id_length
     super
   end
 

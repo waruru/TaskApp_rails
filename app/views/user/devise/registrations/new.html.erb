@@ -4,7 +4,10 @@
   <%= render "user/devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :unique_id %><br />
+    <%= f.label :unique_id %>
+    <% if @minimum_unique_id_length and @maximum_unique_id_length %>
+      <em>(<%= @minimum_unique_id_length %> ~ <%= @maximum_unique_id_length %>文字の半角英数またはアンダースコア)</em>
+    <% end %> <br>
     <%= f.text_field :unique_id, autofocus: true, autocomplete: "id" %>
   </div>
 
