@@ -21,7 +21,7 @@ class WorkspaceUsersController < ApplicationController
         flash[:alert] = "招待に失敗しました。"
         render :new
       end
-    end 
+    end
   end
 
   def destroy
