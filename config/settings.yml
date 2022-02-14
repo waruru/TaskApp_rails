@@ -1,0 +1,4 @@
+user:
+  minimum_unique_id_length: 4
+  maximum_unique_id_length: 10
+  
