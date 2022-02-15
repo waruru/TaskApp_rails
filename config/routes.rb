@@ -15,6 +15,11 @@ Rails.application.routes.draw do
     resource :workspace_users, only: [:new, :create, :destroy]
     resource :boards, only: [:new, :create]
   end
+
+  module :workspace do
+    resources :join_requests, only: [:index]
+  end
+
   resources :boards, only: [:index, :show, :destroy] do
     resources :task_lists, only: [:new, :create]
     resource :board_users, only: [:create, :destroy]
