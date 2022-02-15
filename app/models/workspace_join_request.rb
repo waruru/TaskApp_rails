@@ -1,0 +1,2 @@
+class WorkspaceJoinRequest < ApplicationRecord
+end

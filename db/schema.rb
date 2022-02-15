@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_12_190413) do
+ActiveRecord::Schema.define(version: 2022_02_14_225833) do
 
   create_table "board_users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -61,6 +61,18 @@ ActiveRecord::Schema.define(version: 2022_02_12_190413) do
     t.index ["unique_id"], name: "index_users_on_unique_id", unique: true
   end
 
+  create_table "workspace_join_requests", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "workspace_id", null: false
+    t.bigint "request_sender_id", null: false
+    t.bigint "request_recipient_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["request_recipient_id"], name: "index_workspace_join_requests_on_request_recipient_id"
+    t.index ["request_sender_id"], name: "index_workspace_join_requests_on_request_sender_id"
+    t.index ["workspace_id", "request_sender_id", "request_recipient_id"], name: "index_unique_workspace_join_request", unique: true
+    t.index ["workspace_id"], name: "index_workspace_join_requests_on_workspace_id"
+  end
+
   create_table "workspace_users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "workspace_id", null: false
@@ -82,6 +94,9 @@ ActiveRecord::Schema.define(version: 2022_02_12_190413) do
   add_foreign_key "boards", "workspaces", on_delete: :cascade
   add_foreign_key "task_lists", "boards", on_delete: :cascade
   add_foreign_key "tasks", "task_lists", on_delete: :cascade
+  add_foreign_key "workspace_join_requests", "users", column: "request_recipient_id", on_delete: :cascade
+  add_foreign_key "workspace_join_requests", "users", column: "request_sender_id", on_delete: :cascade
+  add_foreign_key "workspace_join_requests", "workspaces", on_delete: :cascade
   add_foreign_key "workspace_users", "users", on_delete: :cascade
   add_foreign_key "workspace_users", "workspaces", on_delete: :cascade
 end
