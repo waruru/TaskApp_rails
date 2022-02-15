@@ -7,12 +7,14 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 unless User.exists?
-  User.create(
-    unique_id: "test_user",
-    email: "test@test.com",
-    password: 'password',
-    password_confirmation: 'password'
-  )
+  5.times do |t|
+    User.create(
+      unique_id: sprintf("user%02d", t),
+      email: sprintf("test%02d@test.com", t),
+      password: 'password',
+      password_confirmation: 'password'
+    )
+  end
 end
 
 unless Workspace.exists?
