@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resource :boards, only: [:new, :create]
   end
 
-  module :workspace do
+  namespace :workspace do
     resources :join_requests, only: [:index]
   end
 

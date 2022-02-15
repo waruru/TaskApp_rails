@@ -1,2 +1,12 @@
 <h1>Workspace::JoinRequests#index</h1>
-<p>Find me in app/views/workspace/join_requests/index.html.erb</p>
+
+<p>ワークスペース招待</p>
+<% if @requests.exists? %>
+  <ul>
+    <% @requests.each do |request| %>
+      <li><%= request.workspace.name %> <br>
+        <p>招待者： <%= request.sender.unique_id %></p>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
