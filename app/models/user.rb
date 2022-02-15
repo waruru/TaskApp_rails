@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :workspace_users
   has_many :workspaces, through: :workspace_users
+  has_many :workspace_join_requests, class_name: "WorkspaceJoinRequest", foreign_key: "request_recipient_id"
   has_many :board_users
   has_many :boards, through: :board_users
 
