@@ -13,6 +13,6 @@
   <p><%= user.unique_id %></p>
 <% end %>
 <% if @users.include?(current_user) %>
-  <p><%= link_to "ユーザーを招待", new_workspace_workspace_users_path(@workspace) %></p>
+  <p><%= link_to "ユーザー招待", new_workspace_join_request_path(@workspace) %></p>
   <p><%= link_to "ワークスペースから退出", workspace_workspace_users_path(@workspace, user: current_user.id), method: :delete, data: {confirm: "本当にワークスペースから退出してよろしいですか？"} %></p>
 <% end %>
