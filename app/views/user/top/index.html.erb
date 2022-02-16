@@ -4,12 +4,10 @@
 <% @workspaces.each do |workspace| %>
   <p><%= link_to workspace.name, workspace %></p>
 <% end %>
-<%= link_to "ワークスペースを作成", new_workspace_path %>
+<p><%= link_to "ワークスペース招待一覧", workspace_join_request_index_path %></p>
+<p><%= link_to "ワークスペースを作成", new_workspace_path %></p>
 
 <p>ボード</p>
 <% @boards.each do |board| %>
   <p><%= link_to board.name, board %></p>
 <% end %>
-
-<p>ワークスペース招待</p>
-<%= link_to "一覧ページ（テスト）", workspace_join_request_index_path %>
