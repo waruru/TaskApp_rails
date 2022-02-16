@@ -2,12 +2,6 @@ class WorkspaceUsersController < ApplicationController
   before_action :authenticate_user!
   before_action :confirmation_workspace, only: [:new, :create, :destroy]
 
-  def new
-    if params[:search].present?
-      @users = User.search_unique_id(params[:search].split)
-    end
-  end
-
   def create
     user = User.find(params[:user])
     workspace = Workspace.find(params[:workspace_id])
