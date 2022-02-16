@@ -24,6 +24,6 @@ class User < ApplicationRecord
     else
       users += User.where(["unique_id like(?)", "#{keywords}%"])
     end
-    return users
+    return User.where(id: users.map(&:id))
   end 
 end
