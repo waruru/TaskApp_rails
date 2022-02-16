@@ -7,7 +7,7 @@ class Workspace::JoinRequestsController < ApplicationController
 
   def new
     workspace = Workspace.includes(:join_requests, :join_request_recipients).find(params[:workspace_id])
-    @join_requests = workspace.join_request
+    @join_requests = workspace.join_requests
 
     if params[:search].present?
       @users = User.search_unique_id(params[:search].split)
