@@ -1,6 +1,6 @@
 class WorkspaceUsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :confirmation_workspace, only: [:new, :create, :destroy]
+  before_action :confirmation_workspace, only: [:destroy]
 
   def create
     user = User.find(params[:user])
