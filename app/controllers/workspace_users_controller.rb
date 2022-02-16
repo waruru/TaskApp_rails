@@ -4,17 +4,20 @@ class WorkspaceUsersController < ApplicationController
 
   def create
     user = User.find(params[:user])
-    workspace = Workspace.find(params[:workspace_id])
+    workspace = Workspace.includes(:users, :join_request_recipients).find(params[:workspace_id])
     if workspace.users.include?(user)
       flash[:alert] = "そのユーザーはすでに所属しています。"
-      render :new
+      redirect_to root_url
+    elsif workspace.join_request_recipients.exclude?(user)
+      flash[:alert] = "ワークスペースに招待されていません。"
+      redirect_to root_url
     else
       workspace_user = WorkspaceUser.new(user: user, workspace: workspace)
       if workspace_user.save
-        redirect_to workspace, notice: "#{user.unique_id} を招待しました。"
+        redirect_to workspace, notice: "#{workspace.name} に参加しました。"
       else
-        flash[:alert] = "招待に失敗しました。"
-        render :new
+        flash[:alert] = "参加に失敗しました。"
+        redirect_to root_url
       end
     end
   end
