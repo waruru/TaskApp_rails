@@ -26,7 +26,7 @@ class Workspace::JoinRequestsController < ApplicationController
     else
       join_request = WorkspaceJoinRequest.new(sender: current_user, recipient: user, workspace: workspace)
       if join_request.save
-        redirect_to workspace, notice: "#{user.unique_id} を招待しました。"
+        redirect_to new_workspace_join_request_url(workspace), notice: "#{user.unique_id} を招待しました。"
       else
         redirect_to new_workspace_join_request_url(workspace), alert: "招待に失敗しました。"
       end
