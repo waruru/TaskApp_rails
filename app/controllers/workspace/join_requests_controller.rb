@@ -1,5 +1,7 @@
 class Workspace::JoinRequestsController < ApplicationController
   before_action :authenticate_user!
+  before_action :confirmation_workspace, only: [:new, :create]
+  before_action :confirmation_request, only: [:destroy]
 
   def index
     @requests = current_user.workspace_join_requests
@@ -44,6 +46,29 @@ class Workspace::JoinRequestsController < ApplicationController
       else
         redirect_to join_request.workspace
       end
+    end
+  end
+
+  private
+  def confirmation_workspace
+    if params[:workspace_id].present?
+      workspace = Workspace.includes(:users).find(params[:workspace_id])
+      if workspace.users.exclude?(current_user)
+        redirect_to root_url, alert: "ワークスペースが存在しません。"
+      end
+    else
+      redirect_to root_url, alert: "エラーが発生しました。"
+    end
+  end
+
+  def confirmation_request
+    if params[:id].present?
+      request = WorkspaceJoinRequest.find(params[:id])
+      unless request.workspace.users.include?(current_user) or request.recipient == current_user
+        redirect_to root_url, alert: "ワークスペースが存在しません。"
+      end
+    else
+      redirect_to root_url, alert: "エラーが発生しました。"
     end
   end
 end
