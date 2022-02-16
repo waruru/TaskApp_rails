@@ -12,12 +12,15 @@ Rails.application.routes.draw do
   }
 
   resources :workspaces, only: [:index, :show, :new, :create, :destroy] do
-    resource :workspace_users, only: [:new, :create, :destroy]
+    resource :workspace_users, only: [:create, :destroy]
     resource :boards, only: [:new, :create]
-  end
 
-  namespace :workspace do
-    resources :join_requests, only: [:index]
+    scope module: :workspace do
+      collection do
+        resources :join_requests, only: [:index, :destroy], as: :workspace_join_request
+      end
+      resources :join_requests, only: [:new, :create]
+    end
   end
 
   resources :boards, only: [:index, :show, :destroy] do
