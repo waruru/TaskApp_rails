@@ -37,9 +37,13 @@ class Workspace::JoinRequestsController < ApplicationController
     join_request = WorkspaceJoinRequest.includes(:workspace).find(params[:id])
 
     if join_request.destroy
-      redirect_back fallback_location: root_url, alert: "ワークスペースの招待を取り消しました。" and return
+      redirect_back fallback_location: root_url, alert: "ワークスペースへの招待を取り消しました。" and return
     else
-      redirect_to join_request.workspace
+      if join_request.recipient == current_user
+        redirect_to workspace_join_request_index_url
+      else
+        redirect_to join_request.workspace
+      end
     end
   end
 end
