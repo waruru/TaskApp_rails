@@ -16,4 +16,6 @@
   <% @join_requests.each do |request| %>
     <p><%= request.recipient.unique_id %> <%= link_to "招待取り消し", workspace_join_request_path(request), method: :delete, data: {confirm: "#{request.recipient.unique_id} への、ワークスペース招待を取り消しますか？"} %></p>
   <% end %>
+<% else %>
+  <p>なし</p>
 <% end %>
