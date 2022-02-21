@@ -2,7 +2,21 @@
 ja:
   activerecord:
     models:
-      user: "ユーザー"
+      user: ユーザー
+      workspace: ワークスペース
+      board: ボード
+      task_list: リスト
+      task: タスク
     attributes:
       user:
-        unique_id: "個別ID"
+        unique_id: 個別ID
+        email: メールアドレス
+      workspaces:
+        name: ワークスペース名
+      board:
+        name: ボード名
+      task_list:
+        name: リスト名
+      task:
+        title: タイトル
+        memo: 説明
