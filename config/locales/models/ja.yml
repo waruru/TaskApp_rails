@@ -1,0 +1,8 @@
+# モデル名・カラム名の日本語化対応表
+ja:
+  activerecord:
+    models:
+      user: "ユーザー"
+    attributes:
+      user:
+        unique_id: "個別ID"
