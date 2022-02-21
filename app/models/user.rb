@@ -4,11 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :workspace_users
+  has_many :workspace_users, dependent: :destroy
   has_many :workspaces, through: :workspace_users
-  has_many :workspace_join_requests, class_name: "WorkspaceJoinRequest", foreign_key: "request_recipient_id"
+  has_many :workspace_join_requests, class_name: "WorkspaceJoinRequest", foreign_key: "request_recipient_id", dependent: :destroy
   has_many :join_request_workspaces, through: :workspace_join_requests, source: :workspace
-  has_many :board_users
+  has_many :board_users, dependent: :destroy
   has_many :boards, through: :board_users
 
   validates :unique_id, presence: true, uniqueness: true, length: {minimum: Settings.user.minimum_unique_id_length, maximum: Settings.user.maximum_unique_id_length}, format: {with: /\A[\w]+\z/}
