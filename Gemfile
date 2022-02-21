@@ -33,6 +33,10 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # デバックツール
   gem 'pry-rails'
+  # テストデータ生成
+  gem 'factory_bot_rails'
+  # テスト後のデータ削除
+  gem 'database_cleaner'
 end
 
 group :development do
