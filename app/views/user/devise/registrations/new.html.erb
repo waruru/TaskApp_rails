@@ -1,25 +1,24 @@
-<h2>Sign up</h2>
+<h2><%= t('.sign_up') %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "user/devise/shared/error_messages", resource: resource %>
+  <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
     <%= f.label :unique_id %>
     <% if @minimum_unique_id_length and @maximum_unique_id_length %>
-      <em>(<%= @minimum_unique_id_length %> ~ <%= @maximum_unique_id_length %>文字の半角英数またはアンダースコア)</em>
+      <em>(半角英数またはアンダースコアで <%= @minimum_unique_id_length %> ~ <%= @maximum_unique_id_length %>文字)</em>
     <% end %> <br>
     <%= f.text_field :unique_id, autofocus: true, autocomplete: "id" %>
   </div>
-
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em><%= t('user.devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
@@ -30,7 +29,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit t('.sign_up') %>
   </div>
 <% end %>
 
