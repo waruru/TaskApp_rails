@@ -37,6 +37,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   # 自動テスト
   gem 'rspec-rails'
+  gem 'spring-commands-rspec' # rspec stubファイル作成用
 end
 
 group :development do
