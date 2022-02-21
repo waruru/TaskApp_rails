@@ -34,7 +34,7 @@ class TaskListsController < ApplicationController
       board = Board.find(params[:board_id])
     elsif params[:id].present?
       task_list = TaskList.find(params[:id])
-      board = task.board
+      board = task_list.board
     else
       redirect_to root_url, alert: "エラーが発生しました。" and return
     end
