@@ -72,3 +72,6 @@ gem 'rails-i18n'
 
 # 定数管理
 gem 'config'
+
+# cssフレームワーク
+gem "tailwindcss-rails", "~> 2.0"
