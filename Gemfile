@@ -37,6 +37,8 @@ group :development, :test do
   gem 'factory_bot_rails'
   # テスト後のデータ削除
   gem 'database_cleaner'
+  # 自動テスト
+  gem 'rspec-rails'
 end
 
 group :development do
