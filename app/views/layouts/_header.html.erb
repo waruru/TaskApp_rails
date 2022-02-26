@@ -1,20 +1,36 @@
-<header class="site-header">
-  <div class="wrapper site-header_wrapper">
-    <%= link_to 'Wobota', root_path, class: "brand" %>
-    <nav class="nav">
-      <ul class="nav_wrapper">
+<div class="">
+  <header class="container mx-auto bg-gray-800 text-white">
+    <div class="flex justify-between items-center py-4 px-6 sm:px-４ border-b">
+      <h1 class="text-2xl font-medium font-serif"><%= link_to 'wabota', root_path %></h1>
+      <ul class="hidden md:flex space-x-4">
         <% if user_signed_in? %>
-          <li class="nav_item"><%= link_to 'ワークスペース', workspaces_path %></li>
-          <li class="nav_item"><%= link_to 'ボード', boards_path %></li>
-          <li class="nav_item"><a href="#">Services</a></li>
-          <li class="nav_item"><a href="#">Hire us</a></li>
-          <li class="nav_item"><a href="#">Contact</a></li>
-          <li class="nav_item"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+          <li class="py-2 rounded hover:bg-gray-700"><%= link_to 'ワークスペース', workspaces_path, class: "px-3 py-2" %></li>
+          <li class="py-2 rounded hover:bg-gray-700"><%= link_to 'ボード', boards_path, class: "px-3 py-2" %></li>
+          <li class="py-2 rounded hover:bg-gray-700"><%= link_to 'お問い合わせ', "#", class: "px-3 py-2" %></li>
+          <li class="py-2 rounded hover:bg-gray-700"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "px-3 py-2" %></li>
         <% else %>
-          <li class="nav_item"><%= link_to 'ログイン', new_user_session_path %></li>
-          <li class="nav_item"><%= link_to '登録', new_user_registration_path %></li>
+          <li class="py-2 rounded hover:bg-gray-700"><%= link_to 'ログイン', new_user_session_path, class: "px-3 py-2" %></li>
+          <li class="py-2 rounded hover:bg-gray-700"><%= link_to '登録', new_user_registration_path, class: "px-3 py-2" %></li>
         <% end %>
       </ul>
-    </nav>
-  </div>
-</header>
+      <div class="md:hidden">
+        <button>
+          <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+            <path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <ul class="md:hidden px-2 bg-gray-600">
+      <% if user_signed_in? %>
+        <li class="px-2 py-2 mx-6 hover:bg-gray-400 border-b rounded-t"><%= link_to 'ワークスペース', workspaces_path %></li>
+        <li class="px-2 py-2 mx-6 hover:bg-gray-400 border-b rounded-t"><%= link_to 'ボード', boards_path %></li>
+        <li class="px-2 py-2 mx-6 hover:bg-gray-400 border-b rounded-t"><%= link_to 'お問い合わせ', "#" %></li>
+        <li class="px-2 py-2 mx-6 hover:bg-gray-400 border-b rounded-t"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+      <% else %>
+        <li class="px-2 py-2 mx-6 hover:bg-gray-400 border-b rounded-t"><%= link_to 'ログイン', new_user_session_path %></li>
+        <li class="px-2 py-2 mx-6 hover:bg-gray-400 border-b rounded-t"><%= link_to '登録', new_user_registration_path %></li>
+      <% end %>
+    </ul>
+  </header>
+</div>
