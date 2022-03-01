@@ -1,6 +1,6 @@
-<div class="h-full px-6 pt-2 bg-gray-50">
+<div class="h-full px-6 pt-2 bg-gray-100">
   <div class="max-w-[360px] mx-auto px-4 py-10 rounded-md sm:border border-gray-300 sm:bg-white">
-    <h2 class="mb-6 text-3xl text-center"><%= t('.sign_up') %></h2>
+    <h2 class="mb-6 text-2xl text-center"><%= t('.sign_up') %></h2>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "space-y-4"}) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
