@@ -1,36 +1,42 @@
-<h2><%= t('.sign_up') %></h2>
+<div class="h-full px-6 pt-2 bg-gray-50">
+  <div class="max-w-[360px] mx-auto px-4 py-10 rounded-md sm:border border-gray-300 sm:bg-white">
+    <h2 class="mb-6 text-3xl text-center"><%= t('.sign_up') %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "space-y-4"}) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :unique_id %>
-    <% if @minimum_unique_id_length and @maximum_unique_id_length %>
-      <em>(半角英数またはアンダースコアで <%= @minimum_unique_id_length %> ~ <%= @maximum_unique_id_length %>文字)</em>
-    <% end %> <br>
-    <%= f.text_field :unique_id, autofocus: true, autocomplete: "id" %>
+      <div class="field">
+        <%= f.label :unique_id %>
+        <% if @minimum_unique_id_length and @maximum_unique_id_length %>
+          <em>(半角英数,アンダーバー <%= @minimum_unique_id_length %> ~ <%= @maximum_unique_id_length %>字)</em>
+        <% end %> <br>
+        <%= f.text_field :unique_id, autofocus: true, autocomplete: "id", placeholder: "_wabota_", class: "w-full w-full rounded-lg border-gray-300" %>
+      </div>
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autocomplete: "email", placeholder: "xxxxxx@example.com", class: "w-full rounded-lg border-gray-300" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+        <em><%= t('user.devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password", class: "w-full rounded-lg border-gray-300" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "w-full rounded-lg border-gray-300" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit t('.sign_up'), class: "w-full rounded-full py-3 bg-black text-xl text-white" %>
+      </div>
+    <% end %>
+
+    <div class="mt-2 space-y-2 text-gray-500 text-center">
+      <%= render "user/devise/shared/links" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em><%= t('user.devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit t('.sign_up') %>
-  </div>
-<% end %>
-
-<%= render "user/devise/shared/links" %>
+</div>
