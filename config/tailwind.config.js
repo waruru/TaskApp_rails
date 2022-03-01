@@ -11,7 +11,10 @@ module.exports = {
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
-    },
+      minHeight: {
+        '1/2': '50%',
+      }
+    }
   },
   plugins: [
     require('@tailwindcss/forms'),
