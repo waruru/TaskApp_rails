@@ -1,12 +1,25 @@
+<div class="h-full px-6 bg-gray-100">
+  <div class="pt-4">
+    <p>ボード</p>
+    <div class="p-3 rounded bg-gray-300">
+      <ul class="flex overflow-x-auto space-x-4">
+        <% @boards.each do |board| %>
+          <li class="h-24 min-w-[15rem] p-2 rounded-md border border-green-600 bg-green-400"><%= link_to board.name, board %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 
-<p>ワークスペース</p>
-<% @workspaces.each do |workspace| %>
-  <p><%= link_to workspace.name, workspace %></p>
-<% end %>
-<p><%= link_to "ワークスペース招待一覧", workspace_join_request_index_path %></p>
-<p><%= link_to "ワークスペースを作成", new_workspace_path %></p>
-
-<p>ボード</p>
-<% @boards.each do |board| %>
-  <p><%= link_to board.name, board %></p>
-<% end %>
+  <div class="pt-4">
+    <p>ワークスペース</p>
+    <div class="p-3 rounded bg-gray-300">
+      <ul class="flex overflow-x-auto space-x-4">
+        <% @workspaces.each do |workspace| %>
+          <li class="h-24 min-w-[15rem] p-2 rounded-md border border-green-600 bg-green-400"><%= link_to workspace.name, workspace %></li>
+        <% end %>
+      </ul>
+    </div>
+    <p><%= link_to "ワークスペース招待一覧", workspace_join_request_index_path %></p>
+    <p><%= link_to "ワークスペースを作成", new_workspace_path %></p>
+  </div>
+</div>
