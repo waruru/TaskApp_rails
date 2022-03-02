@@ -1,26 +1,32 @@
-<h2><%= t('.sign_in') %></h2>
+<div class="h-full px-6 pt-2 sm:pt-10 bg-gray-100">
+  <div class="max-w-[360px] sm:max-w-[400px] sm:h-3/4 mx-auto px-4 sm:px-6 py-10 rounded-md sm:border border-gray-300 sm:bg-white">
+    <h2 class="mb-6 text-2xl text-center"><%= t('.sign_in') %></h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "space-y-4"}) do |f| %>
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "xxxxxx@example.com", class: "w-full rounded-lg border-gray-300" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+      <div class="field">
+        <%= f.label :password %><br />
+        <%= f.password_field :password, autocomplete: "current-password", class: "w-full rounded-lg border-gray-300" %>
+      </div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <% if devise_mapping.rememberable? %>
+        <div class="field flex justify-end items-center">
+          <%= f.check_box :remember_me, class: "border-gray-400" %>
+          <%= f.label :remember_me %>
+        </div>
+      <% end %>
+
+      <div class="actions">
+        <%= f.submit t('.sign_in'), class: "w-full rounded-full py-3 bg-black text-xl text-white" %>
+      </div>
+    <% end %>
+
+    <div class="mt-2 space-y-2 text-gray-500 text-center">
+      <%= render "user/devise/shared/links" %>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit t('.sign_in') %>
   </div>
-<% end %>
-
-<%= render "user/devise/shared/links" %>
+</div>
