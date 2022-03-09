@@ -4,7 +4,7 @@
     <div class="p-3 rounded bg-gray-300">
       <ul class="flex overflow-x-auto space-x-4">
         <% @boards.each do |board| %>
-          <li class="h-24 min-w-[15rem] p-2 rounded-md border border-green-600 bg-green-400"><%= link_to board.name, board %></li>
+          <li><%= link_to board.name, board, class: "block h-24 min-w-[15rem] p-2 rounded-md border border-green-600 bg-green-400" %></li>
         <% end %>
       </ul>
     </div>
@@ -15,11 +15,11 @@
     <div class="p-3 rounded bg-gray-300">
       <ul class="flex overflow-x-auto space-x-4">
         <% @workspaces.each do |workspace| %>
-          <li class="h-24 min-w-[15rem] p-2 rounded-md border border-green-600 bg-green-400"><%= link_to workspace.name, workspace %></li>
+          <li><%= link_to workspace.name, workspace, class: "block h-24 min-w-[15rem] p-2 rounded-md border border-green-600 bg-green-400" %></li>
         <% end %>
       </ul>
     </div>
-    <p><%= link_to "ワークスペース招待一覧", workspace_join_request_index_path %></p>
     <p><%= link_to "ワークスペースを作成", new_workspace_path %></p>
+    <p><%= link_to "ワークスペース招待一覧", workspace_join_request_index_path %></p>
   </div>
 </div>
