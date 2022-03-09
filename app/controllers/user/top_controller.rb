@@ -3,6 +3,6 @@ class User::TopController < ApplicationController
 
   def index
     @workspaces = current_user.workspaces
-    @boards = current_user.boards
+    @boards = current_user.boards.includes(:workspace)
   end
 end
