@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :workspace do
-    sequence(:name) { |n| "workspace#{n}" }
+    sequence(:name) { |n| "ワークスペース#{n}" }
   end
 end

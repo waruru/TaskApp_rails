@@ -5,26 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-unless User.exists?
-  5.times do |t|
-    User.create(
-      unique_id: sprintf("user%02d", t),
-      email: sprintf("test%02d@test.com", t),
-      password: 'password',
-      password_confirmation: 'password'
-    )
+if Rails.env.development?
+  unless User.exists?
+    FactoryBot.create_list(:user, 5)
   end
-end
 
-unless Workspace.exists?
-  user = User.first
-  workspace = user.workspaces.create(name: 'テストワークスペース01')
-  board = workspace.boards.create(name: 'テストボード01')
-  BoardUser.create(user: user, board: board)
-  task_list = board.task_lists.create(name: 'テストリスト01')
-  board.task_lists.create(name: 'テストリスト02')
-  task_list.tasks.create(title: "テストタスク01")
-  task_list.tasks.create(title: "テストタスク02")
-  task_list.tasks.create(title: "テストタスク03")
+  unless Workspace.exists?
+    workspaces = FactoryBot.create_list(:workspace, 5)
+    user = User.first
+    user.workspaces << workspaces
+  end
 end
