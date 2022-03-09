@@ -1,5 +1,5 @@
-<header class="mx-auto bg-gray-800 text-white">
-  <div class="flex justify-between items-center py-4 px-6 sm:px-４ border-b">
+<header class="sticky top-0 mx-auto bg-gray-800 text-white">
+  <div class="flex justify-between items-center h-16 py-3 px-6 sm:px-４">
     <h1 class="text-2xl font-medium font-serif"><%= link_to 'wabota', root_path %></h1>
     <ul class="hidden md:flex space-x-4">
       <% if user_signed_in? %>
@@ -20,7 +20,7 @@
       </button>
     </div>
   </div>
-  <ul class="md:hidden px-2 bg-gray-600">
+  <ul class="sm:hidden px-2 bg-gray-600">
     <% if user_signed_in? %>
       <li class="mx-6 hover:bg-gray-400 border-b rounded-t"><%= link_to 'ワークスペース', workspaces_path, class: "block px-2 py-2" %></li>
       <li class="mx-6 hover:bg-gray-400 border-b rounded-t"><%= link_to 'ボード', boards_path, class: "block px-2 py-2" %></li>
