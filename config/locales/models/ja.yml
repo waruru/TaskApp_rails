@@ -11,7 +11,7 @@ ja:
       user:
         unique_id: 個別ID
         email: メールアドレス
-      workspaces:
+      workspace:
         name: ワークスペース名
       board:
         name: ボード名
