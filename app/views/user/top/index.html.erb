@@ -4,7 +4,12 @@
     <div class="p-3 rounded bg-gray-300">
       <ul class="flex overflow-x-auto space-x-4">
         <% @boards.each do |board| %>
-          <li><%= link_to board.name, board, class: "block h-24 min-w-[15rem] p-2 rounded-md border border-green-600 bg-green-400" %></li>
+          <li>
+            <%= link_to(board, class: "block h-24 min-w-[15rem] p-2 rounded-md border border-green-600 bg-green-400") do %>
+              <p><%= board.name %></p>
+              <p class="text-sm text-gray-600"><%= board.workspace.name %></p> 
+            <% end %>
+          </li>
         <% end %>
       </ul>
     </div>
