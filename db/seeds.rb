@@ -14,5 +14,8 @@ if Rails.env.development?
     workspaces = FactoryBot.create_list(:workspace, 5)
     user = User.first
     user.workspaces << workspaces
+    workspaces.each do |workspace|
+      user.boards << FactoryBot.create_list(:board, 5, workspace: workspace)
+    end
   end
 end
