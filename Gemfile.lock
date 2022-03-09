@@ -297,7 +297,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
   capybara (>= 3.26)
-  config
+  config (~> 4.0.0)
   devise (~> 4.8.1)
   devise-i18n
   factory_bot_rails
