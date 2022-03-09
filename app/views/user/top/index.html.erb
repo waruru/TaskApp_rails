@@ -1,6 +1,6 @@
-<div class="px-6">
-  <div class="pt-4">
-    <p>ボード</p>
+<div class="container mx-auto">
+  <div class="mt-4">
+    <h3>ボード</h3>
     <div class="p-3 rounded bg-gray-300">
       <ul class="flex overflow-x-auto space-x-4">
         <% @boards.each do |board| %>
@@ -15,8 +15,8 @@
     </div>
   </div>
 
-  <div class="pt-4">
-    <p>ワークスペース</p>
+  <div class="mt-4">
+    <h3>ワークスペース</h3>
     <div class="p-3 rounded bg-gray-300">
       <ul class="flex overflow-x-auto space-x-4">
         <% @workspaces.each do |workspace| %>
@@ -24,7 +24,7 @@
         <% end %>
       </ul>
     </div>
-    <p><%= link_to "ワークスペースを作成", new_workspace_path %></p>
-    <p><%= link_to "ワークスペースへの招待一覧", workspace_join_request_index_path %></p>
+    <p class="m-2 text-right underline"><%= link_to "ワークスペースを作成", new_workspace_path %></p>
+    <p class="m-2 text-right underline"><%= link_to "ワークスペースへの招待一覧", workspace_join_request_index_path %></p>
   </div>
 </div>

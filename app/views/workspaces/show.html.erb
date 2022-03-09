@@ -1,18 +1,27 @@
-<h1>Workspaces#show</h1>
-<p>ワークスペース名：<%= @workspace.name %></p>
-<%= link_to "ワークスペース削除", @workspace, method: :delete, data: {confirm: "本当にワークスペースを削除しますか？"} %>
+<div class="container mx-auto">
+  <h2 class="mt-4 text-center text-3xl"><%= @workspace.name %></h2>
 
-<p>ボード</p>
-<% @boards.each do |board| %>
-  <p><%= link_to board.name, board %></p>
-<% end %>
-<p><%= link_to "ボード追加", new_workspace_boards_path(@workspace) %></p>
+  <div class="mt-4">
+    <h3>ボード</h3>
+    <div class="p-3 rounded bg-gray-300">
+      <ul class="flex overflow-x-auto space-x-4">
+        <% @boards.each do |board| %>
+          <li><%= link_to board.name, board, class: "block h-24 min-w-[15rem] p-2 rounded-md border border-green-600 bg-green-400" %></li>
+        <% end %>
+      </ul>
+    </div>
+    <p class="m-2 text-right underline"><%= link_to "ボード追加", new_workspace_boards_path(@workspace) %></p>
+  </div>
 
-<p>ユーザー</p>
-<% @users.each do |user| %>
-  <p><%= user.unique_id %></p>
-<% end %>
-<% if @users.include?(current_user) %>
-  <p><%= link_to "ユーザー招待", new_workspace_join_request_path(@workspace) %></p>
-  <p><%= link_to "ワークスペースから退出", workspace_workspace_users_path(@workspace, user: current_user.id), method: :delete, data: {confirm: "本当にワークスペースから退出してよろしいですか？"} %></p>
-<% end %>
+  <div class="mt-4">
+    <h3>ユーザー</h3>
+    <% @users.each do |user| %>
+      <p><%= user.unique_id %></p>
+    <% end %>
+    <% if @users.include?(current_user) %>
+      <p><%= link_to "ユーザー招待", new_workspace_join_request_path(@workspace) %></p>
+      <p><%= link_to "ワークスペースから退出", workspace_workspace_users_path(@workspace, user: current_user.id), method: :delete, data: {confirm: "本当にワークスペースから退出してよろしいですか？"} %></p>
+    <% end %>
+  </div>
+  <%= link_to "ワークスペース削除", @workspace, method: :delete, data: {confirm: "本当にワークスペースを削除しますか？"} %>
+</div>
