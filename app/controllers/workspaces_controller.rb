@@ -17,9 +17,9 @@ class WorkspacesController < ApplicationController
   end
 
   def create
-    workspace = Workspace.new(workspace_params)
-    if workspace.save
-      current_user.workspaces << workspace
+    @workspace = Workspace.new(workspace_params)
+    if @workspace.save
+      current_user.workspaces << @workspace
       redirect_to root_url
     else
       render :new
