@@ -9,7 +9,7 @@ ja:
       task: タスク
     attributes:
       user:
-        unique_id: 個別ID
+        unique_id: ユーザーID
         email: メールアドレス
       workspace:
         name: ワークスペース名
