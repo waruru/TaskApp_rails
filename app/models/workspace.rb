@@ -5,4 +5,6 @@ class Workspace < ApplicationRecord
   has_many :join_request_senders, through: :join_requests, source: :sender
   has_many :join_request_recipients, through: :join_requests, source: :recipient
   has_many :boards, dependent: :destroy
+  
+  validates :name, presence: true
 end
