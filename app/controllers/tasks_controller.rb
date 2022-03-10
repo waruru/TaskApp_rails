@@ -7,9 +7,9 @@ class TasksController < ApplicationController
   end
 
   def create
-    task = Task.new(task_params)
-    if task.save
-      redirect_to task.board
+    @task = Task.new(task_params)
+    if @task.save
+      redirect_to @task.board
     else
       render :new
     end
