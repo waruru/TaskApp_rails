@@ -17,8 +17,8 @@ class BoardsController < ApplicationController
   end
 
   def create
-    board = Board.new(board_params)
-    if board.save
+    @board = Board.new(board_params)
+    if @board.save
       redirect_to workspace_url(params[:workspace_id])
     else
       render :new
