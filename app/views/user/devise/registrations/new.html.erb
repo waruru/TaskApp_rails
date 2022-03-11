@@ -6,27 +6,31 @@
       <%= render "devise/shared/error_messages", resource: resource %>
 
       <div class="field">
-        <%= f.label :unique_id %>
-        <% if @minimum_unique_id_length and @maximum_unique_id_length %>
-          <em>(半角英数,アンダーバー <%= @minimum_unique_id_length %> ~ <%= @maximum_unique_id_length %>字)</em>
-        <% end %> <br>
+        <%= f.label :unique_id, class: "flex flex-wrap justify-between" do %>
+          <span>ユーザーID</span>
+          <% if @minimum_unique_id_length and @maximum_unique_id_length %>
+            <em class="text-gray-500">(半角英数,アンダーバー <%= @minimum_unique_id_length %> ~ <%= @maximum_unique_id_length %>字)</em>
+          <% end %>
+        <% end %>
         <%= f.text_field :unique_id, autofocus: true, autocomplete: "id", placeholder: "_wabota_", class: "w-full rounded-lg border-gray-300" %>
       </div>
       <div class="field">
-        <%= f.label :email %><br />
+        <%= f.label :email, class: "block" %>
         <%= f.email_field :email, autocomplete: "email", placeholder: "xxxxxx@example.com", class: "w-full rounded-lg border-gray-300" %>
       </div>
 
       <div class="field">
-        <%= f.label :password %>
-        <% if @minimum_password_length %>
-          <em><%= t('user.devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
-        <% end %><br />
+        <%= f.label :password, class: "flex flex-wrap justify-between" do %>
+          <span>パスワード</span>
+          <% if @minimum_password_length %>
+            <em class="text-gray-500"><%= t('user.devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
+          <% end %>
+        <% end %>
         <%= f.password_field :password, autocomplete: "new-password", class: "w-full rounded-lg border-gray-300" %>
       </div>
 
       <div class="field">
-        <%= f.label :password_confirmation %><br />
+        <%= f.label :password_confirmation, class: "block" %>
         <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "w-full rounded-lg border-gray-300" %>
       </div>
 
