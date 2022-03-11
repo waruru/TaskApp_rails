@@ -1,21 +1,50 @@
-<p>複数検索を行う場合は半角空白で区切ってください</p>
-<%= form_with url: request.original_url, method: :get do |f| %>
-  <%= f.label :search, "ユーザーを検索" %>
-  <%= f.text_field :search %>
-  <%= f.submit "検索" %>
-<% end %>
-
-<% if @users.exists? %>
-  <% @users.each do |user| %>
-    <p><%= link_to user.unique_id, workspace_join_requests_path(params[:workspace_id], user: user), method: :post %></p>
+<div class="container mx-auto px-4">
+  <h2 class="my-6 text-center text-2xl">ワークスペースにユーザー招待</h2>
+  <%= form_with url: request.original_url, method: :get do |f| %>
+    <%= f.label(:search, class: "flex flex-wrap justify-between") do %>
+      ユーザーIDで検索<em class="block sm:mr-10 text-gray-500">※複数検索を行う場合は半角空白で区切ってください</em>
+    <% end %>
+    <div class ="flex items-center space-x-4">
+      <%= f.text_field :search, class: "w-full mt-1 rounded-full border-gray-400" %>
+      <%= f.button(class: "flex") do %>
+        <i class="fa-solid fa-magnifying-glass h-6 w-6 text-blue-600"></i>
+      <% end %>
+    </div>
   <% end %>
-<% end %>
 
-<p>招待済みユーザー</p>
-<% if @join_requests.exists? %>
-  <% @join_requests.each do |request| %>
-    <p><%= request.recipient.unique_id %> <%= link_to "招待取り消し", workspace_join_request_path(request), method: :delete, data: {confirm: "#{request.recipient.unique_id} への、ワークスペース招待を取り消しますか？"} %></p>
+  <% if @users.exists? %>
+    <div class="mt-4">
+      <div class="px-4 py-3 rounded-t-lg border border-gray-400 bg-gray-200">
+        <span><%= @users.count %>人</span>
+      </div>
+      <ul>
+        <% @users.each do |user| %>
+          <li class="py-3 border border-gray-400 border-t-0">
+            <i class="fa-solid fa-user ml-4"></i>
+            <%= link_to user.unique_id, workspace_join_requests_path(params[:workspace_id], user: user), method: :post, class: "ml-2" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   <% end %>
-<% else %>
-  <p>なし</p>
-<% end %>
+
+  <div class="mt-4">
+    <h3>招待済みユーザー</h3>
+    <% if @join_requests.exists? %>
+      <div class="mt-1 px-4 py-3 rounded-t-lg border border-gray-400 bg-gray-200">
+        <span><%= @join_requests.count %>人</span>
+      </div>
+      <ul>
+        <% @join_requests.each do |request| %>
+          <li class="py-3 border border-gray-400 border-t-0">
+            <i class="fa-solid fa-user ml-4"></i>
+            <span class="ml-2"><%= request.recipient.unique_id %></span>
+            <%= link_to "招待取り消し", workspace_join_request_path(request), method: :delete, data: {confirm: "#{request.recipient.unique_id} への、ワークスペース招待を取り消しますか？"} %>
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p>なし</p>
+    <% end %>
+  </div>
+</div>
