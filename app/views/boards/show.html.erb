@@ -15,8 +15,8 @@
     </div>
   </div>
 
-  <% if @task_lists.exists? %>
-    <ul class="flex-grow flex overflow-x-scroll items-start mt-2 px-8 space-x-2">
+  <ul class="flex-grow flex overflow-x-scroll items-start mt-2 px-8 space-x-2">
+    <% if @task_lists.exists? %>
       <% @task_lists.each do |task_list| %>
         <li class="flex-none w-64 p-2 rounded-lg border border-black bg-gray-300 shadow-lg">
           <span class="font-bold"><%= task_list.name %></span>
@@ -31,9 +31,9 @@
           <%= link_to "削除", task_list_path(task_list), method: :delete, data: {confirm: "本当にリストを削除しますか？"} %>
         </li>
       <% end %>
-      <%= link_to "リストを追加", new_board_task_list_path(@board), class: "flex-none block w-64 p-2 rounded bg-gray-200 border border-black font-bold" %>
-    </ul>
-  <% end %>
+    <% end %>
+    <%= link_to "リストを追加", new_board_task_list_path(@board), class: "flex-none block w-64 p-2 rounded bg-gray-200 border border-black font-bold" %>
+  </ul>
 
   <%#= link_to "ボード削除", @board, method: :delete, data: {confirm: "本当にボードを削除しますか？"} %>
 </div>
