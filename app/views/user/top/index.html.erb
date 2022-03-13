@@ -1,7 +1,7 @@
 <div class="container mx-auto">
   <div class="mt-4">
     <h3>ボード</h3>
-    <div class="p-3 rounded bg-gray-300">
+    <div class="p-3 rounded border border-gray-400 bg-gray-300 shadow-md">
       <ul class="flex overflow-x-auto space-x-4">
         <% @boards.each do |board| %>
           <li>
@@ -17,7 +17,7 @@
 
   <div class="mt-4">
     <h3>ワークスペース</h3>
-    <div class="p-3 rounded bg-gray-300">
+    <div class="p-3 rounded border border-gray-400 bg-gray-300 shadow-md">
       <ul class="flex overflow-x-auto space-x-4">
         <% @workspaces.each do |workspace| %>
           <li><%= link_to workspace.name, workspace, class: "block h-24 min-w-[15rem] p-2 rounded-md border border-green-600 bg-green-400" %></li>
