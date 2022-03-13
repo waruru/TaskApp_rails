@@ -1,37 +1,39 @@
-<h1>Boards#show</h1>
-<p>ボード名：<%= @board.name %></p>
+<div class="flex flex-col min-h-[calc(100vh-5rem)]">
+  <div class="flex h-12 items-center space-x-4">
+    <h2 class="ml-4 px-3 border-r-2 border-gray-400 font-bold"><%= @board.name %></h2>
+    <div class="flex flex-shrink-0 items-center space-x-4">
+      <% if @users.exists? %>
+        <ul class="flex overflow-x-auto items-center w-44 space-x-2">
+          <% @users.each do |user| %>
+            <li><%= user.unique_id %></li>
+          <% end %>
+        </ul>
+      <% end %>
+      <% unless @users.include?(current_user) %>
+        <p><%= link_to "参加", board_board_users_path(@board), method: :post %></p>
+      <% end %>
+    </div>
+  </div>
 
-<% if @task_lists.exists? %>
-  <ul>
-    <% @task_lists.each do |task_list| %>
-      <li>リスト：<%= task_list.name %>
-        <%= link_to "削除", task_list_path(task_list), method: :delete, data: {confirm: "本当にリストを削除しますか？"} %>
-        <% if task_list.tasks.exists? %>
-          <ul>
-            <% task_list.tasks.each do |task| %>
-              <li><%= task.title %></li>
-            <% end %>
-          </ul>
-        <% end %>
-        <p><%= link_to "タスクを追加", new_task_list_task_path(task_list) %></p>
-      </li>
-    <% end %>
-  </ul>
-<% end %>
-<p><%= link_to "リストを追加", new_board_task_list_path(@board) %></p>
+  <% if @task_lists.exists? %>
+    <ul class="flex-grow flex overflow-x-scroll items-start mt-2 px-8 space-x-2">
+      <% @task_lists.each do |task_list| %>
+        <li class="flex-none w-64 p-2 rounded-lg border border-black bg-gray-300 shadow-lg">
+          <span class="font-bold"><%= task_list.name %></span>
+          <% if task_list.tasks.exists? %>
+            <ul class="mt-2 space-y-2">
+              <% task_list.tasks.each do |task| %>
+                <li class="rounded bg-white shadow"><%= task.title %></li>
+              <% end %>
+            </ul>
+          <% end %>
+          <%= link_to "タスクを追加", new_task_list_task_path(task_list), class: "block mt-1" %>
+          <%= link_to "削除", task_list_path(task_list), method: :delete, data: {confirm: "本当にリストを削除しますか？"} %>
+        </li>
+      <% end %>
+      <%= link_to "リストを追加", new_board_task_list_path(@board), class: "flex-none block w-64 p-2 rounded bg-gray-200 border border-black font-bold" %>
+    </ul>
+  <% end %>
 
-<p>ユーザー</p>
-<% if @users.exists? %>
-  <ul>
-    <% @users.each do |user| %>
-      <li><%= user.unique_id %></li>
-    <% end %>
-  </ul>
-<% end %>
-<% if @users.include?(current_user) %>
-  <p><%= link_to "ボードから退出", board_board_users_path(@board), method: :delete, data: {confirm: "本当にボードから退出しますか？"} %></p>
-<% else %>
-  <p><%= link_to "参加", board_board_users_path(@board), method: :post %></p>
-<% end %>
-
-<%= link_to "削除", @board, method: :delete, data: {confirm: "本当にボードを削除しますか？"} %>
+  <%#= link_to "ボード削除", @board, method: :delete, data: {confirm: "本当にボードを削除しますか？"} %>
+</div>
