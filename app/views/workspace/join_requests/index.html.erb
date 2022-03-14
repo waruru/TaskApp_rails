@@ -1,12 +1,14 @@
-<h1>Workspace::JoinRequests#index</h1>
+<div>
+  <h2>ワークスペース 招待一覧</h2>
 
-<p>ワークスペース招待</p>
-<% if @requests.exists? %>
-  <ul>
-    <% @requests.each do |request| %>
-      <li><%= request.workspace.name %> <%= link_to "参加", workspace_workspace_users_path(request.workspace, user: request.recipient), method: :post %> <%= link_to "削除", workspace_join_request_path(request), method: :delete, data: {confirm: "ワークスペースへの招待を削除しますか？"} %><br>
-        <p>招待者： <%= request.sender.unique_id %></p>
-      </li>
-    <% end %>
-  </ul>
-<% end %>
+  <p>ワークスペース招待</p>
+  <% if @requests.exists? %>
+    <ul>
+      <% @requests.each do |request| %>
+        <li><%= request.workspace.name %> <%= link_to "参加", workspace_workspace_users_path(request.workspace, user: request.recipient), method: :post %> <%= link_to "削除", workspace_join_request_path(request), method: :delete, data: {confirm: "ワークスペースへの招待を削除しますか？"} %><br>
+          <p>招待者： <%= request.sender.unique_id %></p>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
