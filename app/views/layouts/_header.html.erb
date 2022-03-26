@@ -12,23 +12,22 @@
         <li class="header-li"><%= link_to '登録', new_user_registration_path, class: "px-3 py-2" %></li>
       <% end %>
     </ul>
-    <div class="sm:hidden">
-      <input type="checkbox" class="hidden" id="menu-btn-check">
-      <label for="menu-btn-check" class="menu-btn"><span class="menu-btn-item before:menu-btn-item before:bottom-2 after:menu-btn-item after:top-2"></span></label>
+    <details class="sm:hidden group">
+      <summary class="menu-btn outline-none"><span></span></summary>
 
       <div class="menu-content">
         <ul>
           <% if user_signed_in? %>
-            <li><%= link_to 'ワークスペース', workspaces_path, class: "block px-2 py-2" %></li>
-            <li><%= link_to 'ボード', boards_path, class: "block px-2 py-2" %></li>
-            <li><%= link_to 'お問い合わせ', "#", class: "block px-2 py-2" %></li>
-            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "block px-2 py-2" %></li>
+            <li><%= link_to 'ワークスペース', workspaces_path, class: "block px-2 py-2 select-none" %></li>
+            <li><%= link_to 'ボード', boards_path, class: "block px-2 py-2 select-none" %></li>
+            <li><%= link_to 'お問い合わせ', "#", class: "block px-2 py-2 select-none" %></li>
+            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "block px-2 py-2 select-none" %></li>
           <% else %>
-            <li><%= link_to 'ログイン', new_user_session_path, class: "block px-2 py-2" %></li>
-            <li><%= link_to '登録', new_user_registration_path, class: "block px-2 py-2" %></li>
+            <li><%= link_to 'ログイン', new_user_session_path, class: "block px-2 py-2 select-none" %></li>
+            <li><%= link_to '登録', new_user_registration_path, class: "block px-2 py-2 select-none" %></li>
           <% end %>
         </ul>
       </div>
-    </div>
+    </details>
   </div>
 </header>

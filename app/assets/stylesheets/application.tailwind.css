@@ -19,44 +19,38 @@
 
   /* メニューボタン */
   .menu-btn {
-    @apply justify-center fixed flex h-16 w-16 top-0 right-0 items-center z-50;
+    @apply justify-center fixed flex h-16 w-16 top-0 right-0 z-50 items-center;
+  }
+
+  .menu-btn span {
+    @apply menu-btn-item before:menu-btn-item after:menu-btn-item
+            before:bottom-2 after:top-2
+            group-open:bg-transparent
+            group-open:before:duration-500 group-open:before:rotate-45 group-open:before:bottom-0
+            group-open:after:duration-500 group-open:after:-rotate-45 group-open:after:top-0;
   }
 
   .menu-btn-item {
     @apply absolute block h-1 w-6 bg-white rounded-sm;
   }
 
-  #menu-btn-check:checked ~ .menu-btn span {
-    @apply bg-transparent;
-  }
-
-  #menu-btn-check:checked ~ .menu-btn span::before {
-    bottom: 0;
-    transform: rotate(45deg);
-    transition: all 0.5s;
-  }
-
-  #menu-btn-check:checked ~ .menu-btn span::after {
-    top: 0;
-    transform: rotate(-45deg);
-    transition: all 0.5s;
-  }
-
   .menu-content {
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 40;
+    @apply group-open:left-0;
   }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
   .menu-content ul {
     padding: 70px 10px 0;
   }
+
   .menu-content ul li {
     border-bottom: solid 1px #ffffff;
     list-style: none;
   }
+
   .menu-content ul li a {
     display: block;
     width: 100%;
@@ -67,6 +61,7 @@
     padding: 9px 15px 10px 0;
     position: relative;
   }
+
   .menu-content ul li a::before {
     content: "";
     width: 7px;
@@ -89,10 +84,6 @@
     z-index: 40;
     transition: all 0.5s;
     @apply bg-gray-600 opacity-90;
-  }
-
-  #menu-btn-check:checked ~ .menu-content {
-    left: 50%;
   }
 
   /* .btn-primary {
