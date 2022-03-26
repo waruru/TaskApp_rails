@@ -3,12 +3,96 @@
 @tailwind utilities;
 
 @layer components {
+  /* ヘッダー関連 */
+  .header-li {
+    @apply py-2 rounded hover:bg-gray-700;
+  }
+
+  /* 入力関連 */
   .field_with_errors {
     @apply text-red-500;
   }
 
   .field_with_errors input {
     @apply border-red-500 bg-red-100;
+  }
+
+  /* メニューボタン */
+  .menu-btn {
+    @apply justify-center fixed flex h-16 w-16 top-0 right-0 items-center z-50;
+  }
+
+  .menu-btn-item {
+    @apply absolute block h-1 w-6 bg-white rounded-sm;
+  }
+
+  #menu-btn-check:checked ~ .menu-btn span {
+    @apply bg-transparent;
+  }
+
+  #menu-btn-check:checked ~ .menu-btn span::before {
+    bottom: 0;
+    transform: rotate(45deg);
+    transition: all 0.5s;
+  }
+
+  #menu-btn-check:checked ~ .menu-btn span::after {
+    top: 0;
+    transform: rotate(-45deg);
+    transition: all 0.5s;
+  }
+
+  .menu-content {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 40;
+  }
+  .menu-content ul {
+    padding: 70px 10px 0;
+  }
+  .menu-content ul li {
+    border-bottom: solid 1px #ffffff;
+    list-style: none;
+  }
+  .menu-content ul li a {
+    display: block;
+    width: 100%;
+    font-size: 15px;
+    box-sizing: border-box;
+    color:#ffffff;
+    text-decoration: none;
+    padding: 9px 15px 10px 0;
+    position: relative;
+  }
+  .menu-content ul li a::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-top: solid 2px #ffffff;
+    border-right: solid 2px #ffffff;
+    transform: rotate(45deg);
+    transition: all 0.5s;
+    position: absolute;
+    right: 11px;
+    top: 16px;
+  }
+
+  .menu-content {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 100%;
+    z-index: 40;
+    transition: all 0.5s;
+    @apply bg-gray-600 opacity-90;
+  }
+
+  #menu-btn-check:checked ~ .menu-content {
+    left: 50%;
   }
 
   /* .btn-primary {
