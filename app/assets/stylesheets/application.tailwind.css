@@ -19,7 +19,7 @@
 
   /* メニューボタン */
   .menu-btn {
-    @apply justify-center fixed flex h-16 w-16 top-0 right-0 z-50 items-center;
+    @apply justify-center fixed flex h-16 w-16 top-0 right-0 z-20 items-center;
   }
 
   .menu-btn span {
@@ -35,7 +35,9 @@
   }
 
   .menu-content {
-    @apply group-open:left-0;
+    @apply fixed w-60 h-full top-0 -right-64 z-10 bg-gray-600 opacity-90
+            duration-500
+            group-open:right-0;
   }
 
   summary::-webkit-details-marker {
@@ -43,12 +45,11 @@
   }
 
   .menu-content ul {
-    padding: 70px 10px 0;
+    @apply mt-24 px-3;
   }
 
   .menu-content ul li {
     border-bottom: solid 1px #ffffff;
-    list-style: none;
   }
 
   .menu-content ul li a {
@@ -57,7 +58,6 @@
     font-size: 15px;
     box-sizing: border-box;
     color:#ffffff;
-    text-decoration: none;
     padding: 9px 15px 10px 0;
     position: relative;
   }
@@ -73,17 +73,6 @@
     position: absolute;
     right: 11px;
     top: 16px;
-  }
-
-  .menu-content {
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 100%;
-    z-index: 40;
-    transition: all 0.5s;
-    @apply bg-gray-600 opacity-90;
   }
 
   /* .btn-primary {
