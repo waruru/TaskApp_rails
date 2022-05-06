@@ -1,0 +1,15 @@
+<div class="container mx-auto mt-6 p-6 rounded bg-gray-100 border border-gray-300 shadow-lg">
+  <div>
+    <h2 class="text-2xl font-bold"><i class="fa-solid fa-bars-progress mr-4"></i><%= @task.title %></h2>
+  </div>
+
+  <div class="mt-6">
+    <h2 class="text-xl font-bold"><i class="fa-solid fa-align-left mr-4"></i><span class="text-base">説明</span></h2>
+    <div class="mt-1 p-4 bg-white border border-gray-300 shadow-inner rounded-lg">
+      <div class="prose">
+        <%= markdown(@task.memo).html_safe %>
+      </div>
+    </div>
+    <%= link_to "タスク編集", edit_task_path, class: "block mt-2 text-right underline" %>
+  </div>
+</div>
