@@ -10,7 +10,7 @@
 
       <div class="mt-8">
         <%= f.label :memo, class: "block" %>
-        <%= f.text_area :memo, class: "block w-full mt-1 rounded-lg border-gray-400" %>
+        <%= f.text_area :memo, class: "block w-full mt-1 p-2 rounded-lg border-gray-400" %>
         <p class="field_with_errors text-right"><%= @task.errors.full_messages_for(:memo).first %></p>
       </div>
 
