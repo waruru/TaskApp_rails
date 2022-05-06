@@ -6,10 +6,10 @@
     </div>
     <%= form_with model: @task, url: task_path(@task) do |f|  %>
       <%= f.label :title, class: "block mt-6" %>
-      <%= f.text_field :title, class: "block w-full rounded-lg shadow border-gray-400" %>
+      <%= f.text_field :title, class: "block w-full mt-2 rounded-lg shadow border-gray-400" %>
 
       <%= f.label :memo, class: "block mt-6" %>
-      <%= f.text_area :memo, class: "block h-40 w-full p-4 rounded-lg shadow border-gray-400" %>
+      <%= f.text_area :memo, class: "block h-40 w-full mt-2 p-4 rounded-lg shadow border-gray-400" %>
 
       <%= f.submit "変更", class: "block w-full mt-2 py-2 rounded shadow border bg-green-600 text-white" %>
     <% end %>
