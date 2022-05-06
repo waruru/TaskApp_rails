@@ -1,0 +1,21 @@
+<div class="container mx-auto">
+  <div class="mt-8">
+    <div class="relative">
+      <h2 class="text-center text-2xl font-bold">ボード編集</h2>
+      <%= link_to "削除", board_path(@board), method: :delete, class: "block absolute right-0 px-3 py-1 rounded bg-red-600 text-white", data: { confirm: "本当に削除しますか？" } %>
+    </div>
+    <%= form_with model: @board, url: board_path(@board) do |f|  %>
+      <%= f.label :name, class: "block mt-6" %>
+      <%= f.text_field :name, class: "block w-full rounded-lg shadow border-gray-400" %>
+
+      <%= f.submit "変更", class: "block w-full mt-2 py-2 rounded shadow border bg-green-600 text-white" %>
+    <% end %>
+    <%= link_to "キャンセル", board_path(@board), class: "block py-2 px-auto text-center underline" %>
+  </div>
+
+  <div>
+    <% @board.users.each do |user| %>
+      <%= user.unique_id %>
+    <% end %>
+  </div>
+</div>

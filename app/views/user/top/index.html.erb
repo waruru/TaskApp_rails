@@ -5,7 +5,7 @@
       <ul class="flex overflow-x-auto space-x-4">
         <% @boards.each do |board| %>
           <li>
-            <%= link_to(board, class: "block h-24 min-w-[15rem] p-2 rounded-md border border-green-600 bg-green-400") do %>
+            <%= link_to board, class: "block h-24 min-w-[15rem] p-2 rounded-md border border-green-600 bg-green-400" do %>
               <p><%= board.name %></p>
               <p class="text-sm text-gray-600"><%= board.workspace.name %></p> 
             <% end %>

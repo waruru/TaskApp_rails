@@ -12,6 +12,10 @@ class BoardsController < ApplicationController
     @users = @board.users
   end
 
+  def edit
+    @board = Board.includes(:users).find(params[:id])
+  end
+
   def new
     @board = Board.new
   end
@@ -22,6 +26,15 @@ class BoardsController < ApplicationController
       redirect_to workspace_url(params[:workspace_id])
     else
       render :new
+    end
+  end
+
+  def update
+    @board = Board.find(params[:id])
+    if @board.update(update_params)
+      redirect_to board_url(@board)
+    else
+      render :edit
     end
   end
 
@@ -37,6 +50,10 @@ class BoardsController < ApplicationController
   private
   def board_params
     params.require(:board).permit(:name).merge(workspace_id: params[:workspace_id])
+  end
+
+  def update_params
+    params.require(:board).permit(:name)
   end
 
   def confirmation_board
@@ -59,6 +76,7 @@ class BoardsController < ApplicationController
     else
       redirect_to root_url, alert: "エラーが発生しました。"
     end
+
     unless current_user.workspaces.include?(workspace)
       redirect_to root_url, alert: "そのワークスペースは存在しません。"
     end

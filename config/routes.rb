@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :boards, only: [:index, :show, :destroy] do
+  resources :boards, only: [:index, :show, :edit, :update, :destroy] do
     resources :task_lists, only: [:new, :create]
     resource :board_users, only: [:create, :destroy]
   end
