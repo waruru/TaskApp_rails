@@ -31,4 +31,6 @@ Rails.application.routes.draw do
   resources :task_lists, only: [:destroy] do
     resources :tasks, only: [:new, :create]
   end
+
+  resources :tasks, only: [:show, :edit, :update, :destroy]
 end
