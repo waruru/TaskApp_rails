@@ -74,4 +74,10 @@ gem 'rails-i18n'
 gem 'config', '~> 4.0.0'
 
 # cssフレームワーク
-gem "tailwindcss-rails", '~> 2.0'
+gem 'tailwindcss-rails', '~> 2.0'
+
+# マークダウン形式対応
+gem 'redcarpet'
+
+# シンタックスハイライト対応
+gem 'coderay'

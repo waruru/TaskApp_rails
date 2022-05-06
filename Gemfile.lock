@@ -210,6 +210,7 @@ GEM
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    redcarpet (3.5.1)
     regexp_parser (2.2.0)
     responders (3.0.1)
       actionpack (>= 5.0)
@@ -297,6 +298,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
   capybara (>= 3.26)
+  coderay
   config (~> 4.0.0)
   devise (~> 4.8.1)
   devise-i18n
@@ -309,6 +311,7 @@ DEPENDENCIES
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.4, >= 6.1.4.1)
   rails-i18n
+  redcarpet
   rspec-rails
   sass-rails (>= 6)
   selenium-webdriver
