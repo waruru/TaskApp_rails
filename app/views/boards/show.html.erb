@@ -24,7 +24,7 @@
           <% if task_list.tasks.exists? %>
             <ul class="mt-2 space-y-2">
               <% task_list.tasks.each do |task| %>
-                <li class="rounded bg-white shadow"><%= task.title %></li>
+                <li class="rounded bg-white shadow"><%= link_to task.title, task %></li>
               <% end %>
             </ul>
           <% end %>
