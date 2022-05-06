@@ -1,9 +1,17 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!
-  before_action :confirmation_board
+  before_action :confirmation_board, only: [:new, :create]
+
+  def show
+    @task = Task.find(params[:id])
+  end
 
   def new
     @task = Task.new
+  end
+
+  def edit
+    @task = Task.find(params[:id])
   end
 
   def create
@@ -15,9 +23,31 @@ class TasksController < ApplicationController
     end
   end
 
+  def update
+    @task = Task.find(params[:id])
+    if @task.update(update_params)
+      redirect_to task_url(@task)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @task = Task.find(params[:id])
+    if @task.destroy
+      redirect_to board_url(@task.board_id)
+    else
+      render :edit
+    end
+  end
+
   private
   def task_params
     params.require(:task).permit(:title, :memo).merge(task_list_id: params[:task_list_id])
+  end
+
+  def update_params
+    params.require(:task).permit(:title, :memo)
   end
 
   def confirmation_board
