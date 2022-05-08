@@ -3,7 +3,7 @@ class WorkspacesController < ApplicationController
   before_action :confirmation_workspace, only: [:show, :destroy]
 
   def index
-    @workspaces = Workspace.all
+    @workspaces = current_user.workspaces
   end
 
   def show
