@@ -5,7 +5,7 @@
 
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
     <% @boards.each do |board| %>
-      <div class="col-span-1 h-24 rounded-md border border-gray-600" style="background-color: <%= board.color%>;">
+      <div class="col-span-1 h-24 rounded-md border border-gray-600 shadow-lg" style="background-color: <%= board.color%>;">
         <%= link_to board, class: "block h-full p-2" do %>
           <p class="font-bold text-white"><%= board.name %></p>
           <p class="text-sm"><%= board.workspace.name %></p>
