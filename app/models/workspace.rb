@@ -7,4 +7,5 @@ class Workspace < ApplicationRecord
   has_many :boards, dependent: :destroy
   
   validates :name, presence: true
+  validate :color, presence: true
 end

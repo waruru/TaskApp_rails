@@ -13,6 +13,7 @@ ja:
         email: メールアドレス
       workspace:
         name: ワークスペース名
+        color: テーマカラー
       board:
         name: ボード名
       task_list:

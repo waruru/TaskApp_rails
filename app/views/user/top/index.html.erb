@@ -20,7 +20,7 @@
     <div class="p-3 rounded border border-gray-400 bg-gray-300 shadow-md">
       <ul class="flex overflow-x-auto space-x-4">
         <% @workspaces.each do |workspace| %>
-          <li><%= link_to workspace.name, workspace, class: "block h-24 min-w-[15rem] p-2 rounded-md border border-green-600 bg-green-400" %></li>
+          <li><%= link_to workspace.name, workspace, class: "block h-24 min-w-[15rem] p-2 rounded-md border border-gray-600 font-bold text-white", style: "background-color: #{workspace.color};" %></li>
         <% end %>
       </ul>
     </div>

@@ -38,7 +38,7 @@ class WorkspacesController < ApplicationController
 
   private
   def workspace_params
-    params.require(:workspace).permit(:name)
+    params.require(:workspace).permit(:name, :color)
   end
 
   def confirmation_workspace
