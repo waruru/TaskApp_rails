@@ -4,6 +4,7 @@ class BoardsController < ApplicationController
   before_action :confirmation_board, only: [:destroy]
 
   def index
+    @boards = current_user.boards.includes(:workspace)
   end
 
   def show
