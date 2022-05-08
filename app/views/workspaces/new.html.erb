@@ -8,7 +8,7 @@
         <p class="field_with_errors text-right"><%= @workspace.errors.full_messages_for(:name).first %></p>
 
         <%= f.label :color, class: "block" %>
-        <%= f.text_field :color, class: "block w-full mt-1 rounded-lg border-gray-400" %>
+        <%= f.color_field :color %>
         <p class="field_with_errors text-right"><%= @workspace.errors.full_messages_for(:color).first %></p>
       </div>
 
