@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2022_02_14_225833) do
 
   create_table "boards", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", default: "", null: false
+    t.string "color", default: "#4ade80", null: false
     t.bigint "workspace_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

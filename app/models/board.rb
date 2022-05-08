@@ -6,4 +6,5 @@ class Board < ApplicationRecord
   has_many :users, through: :board_users
 
   validates :name, presence: true
+  validates :color, presence: true
 end

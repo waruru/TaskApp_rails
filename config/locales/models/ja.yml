@@ -16,6 +16,7 @@ ja:
         color: テーマカラー
       board:
         name: ボード名
+        color: テーマカラー
       task_list:
         name: リスト名
       task:

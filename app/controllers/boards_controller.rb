@@ -50,11 +50,11 @@ class BoardsController < ApplicationController
 
   private
   def board_params
-    params.require(:board).permit(:name).merge(workspace_id: params[:workspace_id])
+    params.require(:board).permit(:name, :color).merge(workspace_id: params[:workspace_id])
   end
 
   def update_params
-    params.require(:board).permit(:name)
+    params.require(:board).permit(:name, :color)
   end
 
   def confirmation_board
