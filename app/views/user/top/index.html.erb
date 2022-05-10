@@ -28,7 +28,9 @@
         <% end %>
       </ul>
     </div>
-    <p class="m-2 text-right underline"><%= link_to "ワークスペースを作成", new_workspace_path %></p>
-    <p class="m-2 text-right underline"><%= link_to "ワークスペースへの招待一覧", workspace_join_request_index_path %></p>
+    <div class="mt-2 space-y-1">
+      <p class="h-6 text-right"><%= link_to "ワークスペースを作成", new_workspace_path, class: "line-link" %></p>
+      <p class="h-6 text-right"><%= link_to "ワークスペースへの招待一覧", workspace_join_request_index_path, class: "line-link" %></p>
+    </div>
   </div>
 </div>
