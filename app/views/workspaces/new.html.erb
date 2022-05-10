@@ -1,18 +1,20 @@
 <div class="container mx-auto">
-  <div class="mt-8">
-    <%= form_with model: @workspace, class: "space-y-4" do |f| %>
-      <h2 class="text-center text-3xl font-bold">ワークスペース作成</h2>
-      <div class="mt-8">
-        <%= f.label :name, class: "block" %>
+  <h2 class="my-8 text-center text-3xl font-bold">ワークスペース作成</h2>
+  <%= form_with model: @workspace, class: "space-y-4" do |f| %>
+    <div>
+      <div>
+        <%= f.label :name, class: "block font-bold" %>
         <%= f.text_field :name, class: "block w-full mt-1 rounded-lg border-gray-400" %>
         <p class="field_with_errors text-right"><%= @workspace.errors.full_messages_for(:name).first %></p>
+      </div>
 
-        <%= f.label :color, class: "block" %>
+      <div class="mt-4">
+        <%= f.label :color, class: "block font-bold" %>
         <%= f.color_field :color %>
         <p class="field_with_errors text-right"><%= @workspace.errors.full_messages_for(:color).first %></p>
       </div>
+    </div>
 
-      <%= f.submit "作成", class: "w-full mt-6 py-2 bg-blue-500 border text-white" %>
-    <% end %>
-  </div>
+    <%= f.submit "作成", class: "w-full mt-6 py-2 bg-blue-500 border text-white rounded-md" %>
+  <% end %>
 </div>
