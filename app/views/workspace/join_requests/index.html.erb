@@ -3,14 +3,29 @@
     <h2 class="text-4xl text-center font-bold">ワークスペース 招待一覧</h2>
   </div>
 
-  <p>ワークスペース招待</p>
-  <% if @requests.exists? %>
-    <ul>
-      <% @requests.each do |request| %>
-        <li><%= request.workspace.name %> <%= link_to "参加", workspace_workspace_users_path(request.workspace, user: request.recipient), method: :post %> <%= link_to "削除", workspace_join_request_path(request), method: :delete, data: {confirm: "ワークスペースへの招待を削除しますか？"} %><br>
-          <p>招待者： <%= request.sender.unique_id %></p>
-        </li>
-      <% end %>
-    </ul>
-  <% end %>
+  <div>
+    <h3 class="text-lg font-bold">ワークスペース招待</h3>
+    <% if @requests.exists? %>
+      <table class="table-auto w-full mt-2 shadow-lg text-center">
+        <thead class="border border-gray-600">
+          <tr class="shadow-md">
+            <th class="py-2 border-r border-gray-600">ワークスペース名</th>
+            <th class="py-2 border-r border-gray-600">招待者id</th>
+            <th class="py-2 border-r border-gray-600"></th>
+            <th class="py-2"></th>
+          </tr>
+        </thead>
+        <tbody class="border border-gray-600">
+          <% @requests.each do |request| %>
+            <tr class="shadow">
+              <td class="py-2 border-r border-gray-600"><%= request.workspace.name %></td>
+              <td class="py-2 border-r border-gray-600"><%= request.sender.unique_id %></td>
+              <td class="py-2 border-r border-gray-600"><%= link_to "参加", workspace_workspace_users_path(request.workspace, user: request.recipient), method: :post, class: "underline text-blue-500" %></td>
+              <td class="py-2"><%= link_to "拒否", workspace_join_request_path(request), method: :delete, class: "underline text-red-500", data: {confirm: "ワークスペースへの招待を削除しますか？"} %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
 </div>
