@@ -2,7 +2,7 @@
   <div class="flex h-12 items-center space-x-4">
     <h2 class="ml-4 px-3 border-r-2 border-gray-400 font-bold"><%= @board.name %></h2>
     <div class="flex flex-shrink-0 items-center space-x-4">
-      <% if @users.exists? %>
+      <% if @users.present? %>
         <ul class="flex overflow-x-auto items-center w-44 space-x-2">
           <% @users.each do |user| %>
             <li><%= user.unique_id %></li>
@@ -17,11 +17,11 @@
   </div>
 
   <ul class="flex-grow flex overflow-x-scroll items-start mt-2 px-8 space-x-2">
-    <% if @task_lists.exists? %>
+    <% if @task_lists.present? %>
       <% @task_lists.each do |task_list| %>
         <li class="flex-none w-64 p-2 rounded-lg border border-black bg-gray-300 shadow-lg">
           <span class="font-bold"><%= task_list.name %></span>
-          <% if task_list.tasks.exists? %>
+          <% if task_list.tasks.present? %>
             <ul class="mt-2 space-y-2">
               <% task_list.tasks.each do |task| %>
                 <li class="rounded bg-white shadow"><%= link_to task.title, task %></li>

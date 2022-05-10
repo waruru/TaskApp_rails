@@ -12,7 +12,7 @@
     </div>
   <% end %>
 
-  <% if @users.exists? %>
+  <% if @users.present? %>
     <div class="mt-4">
       <div class="px-4 py-3 rounded-t-lg border border-gray-400 bg-gray-200">
         <span><%= @users.count %>人</span>
@@ -30,7 +30,7 @@
 
   <div class="mt-4">
     <h3>招待済みユーザー</h3>
-    <% if @join_requests.exists? %>
+    <% if @join_requests.present? %>
       <div class="mt-1 px-4 py-3 rounded-t-lg border border-gray-400 bg-gray-200">
         <span><%= @join_requests.count %>人</span>
       </div>
