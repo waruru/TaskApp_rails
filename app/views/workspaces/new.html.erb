@@ -1,7 +1,7 @@
 <div class="container mx-auto">
-  <div class="mt-8 px-4">
+  <div class="mt-8">
     <%= form_with model: @workspace, class: "space-y-4" do |f| %>
-      <h2 class="text-center text-2xl">ワークスペース作成</h2>
+      <h2 class="text-center text-3xl font-bold">ワークスペース作成</h2>
       <div class="mt-8">
         <%= f.label :name, class: "block" %>
         <%= f.text_field :name, class: "block w-full mt-1 rounded-lg border-gray-400" %>

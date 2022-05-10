@@ -1,9 +1,9 @@
 <div class="container mx-auto">
-  <h2 class="mt-4 text-center text-3xl"><%= @workspace.name %></h2>
+  <h2 class="my-8 text-center text-3xl font-bold"><%= @workspace.name %></h2>
 
-  <div class="mt-4">
-    <h3>ボード</h3>
-    <div class="p-3 rounded bg-gray-300 shadow shadow-gray-500">
+  <div>
+    <h3 class="font-bold">ボード</h3>
+    <div class="mt-1 p-3 rounded bg-gray-300 shadow shadow-gray-500">
       <ul class="flex overflow-x-auto space-x-4">
         <% @boards.each do |board| %>
           <li><%= link_to board.name, board, class: "block h-24 min-w-[15rem] p-2 rounded-md border border-gray-600", style: "background-color: #{board.color};" %></li>
