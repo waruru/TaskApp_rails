@@ -4,7 +4,7 @@ class Workspace::JoinRequestsController < ApplicationController
   before_action :confirmation_request, only: [:destroy]
 
   def index
-    @requests = current_user.workspace_join_requests
+    @requests = current_user.workspace_join_requests.includes(:workspace, :sender, :recipient)
   end
 
   def new
