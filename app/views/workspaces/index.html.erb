@@ -5,7 +5,7 @@
 
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
     <% @workspaces.each do |workspace| %>
-      <div class="col-span-1 h-24 rounded-md border border-gray-600 shadow-lg" style="background-color: <%= workspace.color %>;">
+      <div class="col-span-1 h-24 rounded-md border border-gray-600 shadow-md shadow-gray-400" style="background-color: <%= workspace.color %>;">
         <%= link_to workspace, class: "block h-full p-2" do %>
           <p class="text-white font-bold"><%= workspace.name %></p>
         <% end %>
