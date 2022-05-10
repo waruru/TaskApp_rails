@@ -3,18 +3,17 @@
     <h1 class="text-2xl font-medium font-serif"><%= link_to 'wabota', root_path %></h1>
     <ul class="hidden sm:flex space-x-4">
       <% if user_signed_in? %>
-        <li class="header-li"><%= link_to 'ワークスペース', workspaces_path, class: "px-3 py-2" %></li>
-        <li class="header-li"><%= link_to 'ボード', boards_path, class: "px-3 py-2" %></li>
-        <li class="header-li"><%= link_to 'お問い合わせ', "#", class: "px-3 py-2" %></li>
-        <li class="header-li"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "px-3 py-2" %></li>
+        <li class="header-li hover:font-bold"><%= link_to 'ワークスペース', workspaces_path, class: "px-3 py-2" %></li>
+        <li class="header-li hover:font-bold"><%= link_to 'ボード', boards_path, class: "px-3 py-2" %></li>
+        <li class="header-li hover:font-bold"><%= link_to 'お問い合わせ', "#", class: "px-3 py-2" %></li>
+        <li class="header-li hover:font-bold"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "px-3 py-2" %></li>
       <% else %>
-        <li class="header-li"><%= link_to 'ログイン', new_user_session_path, class: "px-3 py-2" %></li>
-        <li class="header-li"><%= link_to '登録', new_user_registration_path, class: "px-3 py-2" %></li>
+        <li class="header-li hover:font-bold"><%= link_to 'ログイン', new_user_session_path, class: "px-3 py-2" %></li>
+        <li class="header-li hover:font-bold"><%= link_to '登録', new_user_registration_path, class: "px-3 py-2" %></li>
       <% end %>
     </ul>
     <details class="sm:hidden group">
       <summary class="menu-btn outline-none"><span></span></summary>
-
       <div class="menu-content">
         <ul>
           <% if user_signed_in? %>
