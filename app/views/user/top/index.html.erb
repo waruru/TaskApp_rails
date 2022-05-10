@@ -4,8 +4,8 @@
     <div class="mt-1 p-3 rounded bg-gray-300 shadow shadow-gray-500">
       <ul class="flex overflow-x-auto space-x-4">
         <% @boards.each do |board| %>
-          <li>
-            <%= link_to board, class: "group block h-24 min-w-[15rem] p-2 rounded-md border border-gray-600", style: "background-color: #{board.color};" do %>
+          <li class="h-24 rounded-md border border-gray-600" style="background-color: <%= board.color %>;">
+            <%= link_to board, class: "group block h-full min-w-[15rem] p-2" do %>
               <p class="font-bold text-white group-hover:underline"><%= board.name %></p>
               <p class="text-sm"><%= board.workspace.name %></p> 
             <% end %>
@@ -20,7 +20,11 @@
     <div class="mt-1 p-3 rounded bg-gray-300 shadow shadow-gray-500">
       <ul class="flex overflow-x-auto space-x-4">
         <% @workspaces.each do |workspace| %>
-          <li><%= link_to workspace.name, workspace, class: "block h-24 min-w-[15rem] p-2 rounded-md border border-gray-600 font-bold text-white hover:underline", style: "background-color: #{workspace.color};" %></li>
+          <li class="h-24 rounded-md border border-gray-600" style="background-color: <%= workspace.color %>;">
+            <%= link_to workspace, class: "group block h-full min-w-[15rem] p-2" do %>
+              <p class="font-bold text-white group-hover:underline"><%= workspace.name %></p>
+            <% end %>
+          </li>
         <% end %>
       </ul>
     </div>
