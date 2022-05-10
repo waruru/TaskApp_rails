@@ -6,7 +6,7 @@
     <div class="mt-1 p-3 rounded bg-gray-300 shadow shadow-gray-500">
       <ul class="flex overflow-x-auto space-x-4">
         <% @boards.each do |board| %>
-          <li><%= link_to board.name, board, class: "block h-24 min-w-[15rem] p-2 rounded-md border border-gray-600 text-white font-bold", style: "background-color: #{board.color};" %></li>
+          <li><%= link_to board.name, board, class: "block h-24 min-w-[15rem] p-2 rounded-md border border-gray-600 text-white font-bold hover:underline", style: "background-color: #{board.color};" %></li>
         <% end %>
       </ul>
     </div>
