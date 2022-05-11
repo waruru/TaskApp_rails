@@ -7,7 +7,7 @@
     <% @boards.each do |board| %>
       <div class="col-span-1 h-24 rounded-md border border-gray-600 shadow-md shadow-gray-400 hover:shadow-gray-600" style="background-color: <%= board.color%>;">
         <%= link_to board, class: "group block h-full p-2" do %>
-          <p class="font-bold text-white group-hover:underline"><%= board.name %></p>
+          <p class="font-bold text-white text-lg group-hover:underline"><%= board.name %></p>
           <p class="text-sm"><%= board.workspace.name %></p>
         <% end %>
       </div>

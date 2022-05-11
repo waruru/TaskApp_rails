@@ -7,7 +7,7 @@
     <% @workspaces.each do |workspace| %>
       <div class="col-span-1 h-24 rounded-md border border-gray-600 shadow-md shadow-gray-400 hover:shadow-gray-600" style="background-color: <%= workspace.color %>;">
         <%= link_to workspace, class: "group block h-full p-2" do %>
-          <p class="text-white font-bold group-hover:underline"><%= workspace.name %></p>
+          <p class="text-white text-lg font-bold group-hover:underline"><%= workspace.name %></p>
         <% end %>
       </div>
     <% end %>
