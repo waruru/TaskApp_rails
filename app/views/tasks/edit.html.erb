@@ -5,10 +5,10 @@
       <%= link_to "削除", task_path(@task), method: :delete, class: "block absolute right-0 px-3 py-1 rounded bg-red-600 text-white", data: { confirm: "本当に削除しますか？" } %>
     </div>
     <%= form_with model: @task, url: task_path(@task) do |f|  %>
-      <%= f.label :title, class: "block mt-6" %>
+      <%= f.label :title, class: "block mt-6 font-bold" %>
       <%= f.text_field :title, class: "block w-full mt-2 rounded-lg shadow border-gray-400", autofocus: true %>
 
-      <%= f.label :memo, class: "block mt-6" %>
+      <%= f.label :memo, class: "block mt-6 font-bold" %>
       <%= f.text_area :memo, class: "block h-40 w-full mt-2 p-4 rounded-lg shadow border-gray-400" %>
 
       <%= f.submit "変更", class: "block w-full mt-2 py-2 rounded shadow border bg-green-600 text-white" %>

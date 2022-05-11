@@ -3,13 +3,13 @@
     <%= form_with model: @task, url: task_list_tasks_path(params[:task_list_id]), class: "space-y-4" do |f| %>
       <h2 class="text-center text-2xl">タスク追加</h2>
       <div class="mt-8">
-        <%= f.label :title, class: "block" %>
+        <%= f.label :title, class: "block font-bold" %>
         <%= f.text_field :title, class: "block w-full mt-1 rounded-lg border-gray-400", autofocus: true %>
         <p class="field_with_errors text-right"><%= @task.errors.full_messages_for(:title).first %></p>
       </div>
 
       <div class="mt-8">
-        <%= f.label :memo, class: "block" %>
+        <%= f.label :memo, class: "block font-bold" %>
         <%= f.text_area :memo, class: "block w-full mt-1 p-2 rounded-lg border-gray-400" %>
         <p class="field_with_errors text-right"><%= @task.errors.full_messages_for(:memo).first %></p>
       </div>

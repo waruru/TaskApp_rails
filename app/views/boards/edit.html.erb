@@ -5,11 +5,11 @@
       <%= link_to "削除", board_path(@board), method: :delete, class: "block absolute right-0 px-3 py-1 rounded bg-red-600 text-white", data: { confirm: "本当に削除しますか？" } %>
     </div>
     <%= form_with model: @board, url: board_path(@board) do |f|  %>
-      <%= f.label :name, class: "block mt-6" %>
+      <%= f.label :name, class: "block mt-6 font-bold" %>
       <%= f.text_field :name, class: "block w-full rounded-lg shadow border-gray-400", autofocus: true %>
         <p class="field_with_errors text-right"><%= @board.errors.full_messages_for(:name).first %></p>
 
-      <%= f.label :color, class: "block mt-6" %>
+      <%= f.label :color, class: "block mt-6 font-bold" %>
       <%= f.color_field :color %>
       <p class="field_with_errors text-right"><%= @board.errors.full_messages_for(:color).first %></p>
 
