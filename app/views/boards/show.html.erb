@@ -13,7 +13,7 @@
         <p><%= link_to "参加", board_board_users_path(@board), method: :post %></p>
       <% end %>
     </div>
-    <%= link_to "ボード編集", edit_board_path %>
+    <%= link_to "ボード編集", edit_board_path, class: "underline" %>
   </div>
 
   <ul class="flex-grow flex overflow-x-scroll items-start mt-2 px-8 space-x-2">
@@ -35,6 +35,4 @@
     <% end %>
     <%= link_to "リストを追加", new_board_task_list_path(@board), class: "flex-none block w-64 p-2 rounded bg-gray-200 border border-black font-bold" %>
   </ul>
-
-  <%#= link_to "ボード削除", @board, method: :delete, data: {confirm: "本当にボードを削除しますか？"} %>
 </div>
