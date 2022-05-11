@@ -76,7 +76,7 @@
   }
 
   .line-link {
-    @apply underline hover:font-bold text-base hover:text-lg
+    @apply underline text-base hover:text-lg
   }
 
   /* .btn-primary {
