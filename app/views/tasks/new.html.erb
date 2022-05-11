@@ -4,7 +4,7 @@
       <h2 class="text-center text-2xl">タスク追加</h2>
       <div class="mt-8">
         <%= f.label :title, class: "block" %>
-        <%= f.text_field :title, class: "block w-full mt-1 rounded-lg border-gray-400" %>
+        <%= f.text_field :title, class: "block w-full mt-1 rounded-lg border-gray-400", autofocus: true %>
         <p class="field_with_errors text-right"><%= @task.errors.full_messages_for(:title).first %></p>
       </div>
 

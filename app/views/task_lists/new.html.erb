@@ -1,14 +1,12 @@
 <div class="container mx-auto">
-  <div class="mt-8 px-4">
-    <%= form_with model: @task_list, url: board_task_lists_path(params[:board_id]), class: "space-y-4" do |f| %>
-      <h2 class="text-center text-2xl">リスト作成</h2>
-      <div class="mt-8">
-        <%= f.label :name, class: "block" %>
-        <%= f.text_field :name, class: "block w-full mt-1 rounded-lg border-gray-400" %>
-        <p class="field_with_errors text-right"><%= @task_list.errors.full_messages_for(:name).first %></p>
-      </div>
+  <h2 class="my-6 text-center text-2xl font-bold">リスト作成</h2>
+  <%= form_with model: @task_list, url: board_task_lists_path(params[:board_id]), class: "space-y-4" do |f| %>
+    <div class="mt-8">
+      <%= f.label :name, class: "block font-bold" %>
+      <%= f.text_field :name, class: "block w-full mt-1 rounded-lg border-gray-400", autofocus: true %>
+      <p class="field_with_errors text-right"><%= @task_list.errors.full_messages_for(:name).first %></p>
+    </div>
 
-      <%= f.submit "作成", class: "w-full mt-6 py-2 bg-blue-500 border text-white" %>
-    <% end %>
-  </div>
+    <%= f.submit "作成", class: "w-full mt-6 py-2 bg-blue-500 border text-white" %>
+  <% end %>
 </div>

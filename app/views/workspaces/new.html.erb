@@ -4,7 +4,7 @@
     <div>
       <div>
         <%= f.label :name, class: "block font-bold" %>
-        <%= f.text_field :name, class: "block w-full mt-1 rounded-lg border-gray-400" %>
+        <%= f.text_field :name, class: "block w-full mt-1 rounded-lg border-gray-400", autofocus: true %>
         <p class="field_with_errors text-right"><%= @workspace.errors.full_messages_for(:name).first %></p>
       </div>
 
