@@ -1,20 +1,18 @@
 <div class="container mx-auto items-center">
-  <div class="mt-8 px-4">
-    <%= form_with model: @task, url: task_list_tasks_path(params[:task_list_id]), class: "space-y-4" do |f| %>
-      <h2 class="text-center text-2xl">タスク追加</h2>
-      <div class="mt-8">
-        <%= f.label :title, class: "block font-bold" %>
-        <%= f.text_field :title, class: "block w-full mt-1 rounded-lg border-gray-400", autofocus: true %>
-        <p class="field_with_errors text-right"><%= @task.errors.full_messages_for(:title).first %></p>
-      </div>
+  <h2 class= "my-8 text-center text-3xl font-bold">タスク追加</h2>
+  <%= form_with model: @task, url: task_list_tasks_path(params[:task_list_id]), class: "space-y-4" do |f| %>
+    <div>
+      <%= f.label :title, class: "block font-bold" %>
+      <%= f.text_field :title, class: "block w-full mt-1 rounded-lg border-gray-400", autofocus: true %>
+      <p class="field_with_errors text-right"><%= @task.errors.full_messages_for(:title).first %></p>
+    </div>
 
-      <div class="mt-8">
-        <%= f.label :memo, class: "block font-bold" %>
-        <%= f.text_area :memo, class: "block w-full mt-1 p-2 rounded-lg border-gray-400" %>
-        <p class="field_with_errors text-right"><%= @task.errors.full_messages_for(:memo).first %></p>
-      </div>
+    <div>
+      <%= f.label :memo, class: "block font-bold" %>
+      <%= f.text_area :memo, class: "block w-full mt-1 p-2 rounded-lg border-gray-400" %>
+      <p class="field_with_errors text-right"><%= @task.errors.full_messages_for(:memo).first %></p>
+    </div>
 
-      <%= f.submit "追加", class: "w-full mt-6 py-2 bg-blue-500 border text-white" %>
-    <% end %>
-  </div>
+    <%= f.submit "追加", class: "w-full mt-6 py-2 rounded-md bg-blue-500 border text-white" %>
+  <% end %>
 </div>
