@@ -1,18 +1,18 @@
 <div class="container mx-auto items-center">
-  <div class="mt-8 px-4">
-    <%= form_with model: @board, url: workspace_boards_path do |f| %>
-      <h2 class="text-center text-2xl">ボード追加</h2>
-      <div class="mt-8">
-        <%= f.label :name, class: "block font-bold" %>
-        <%= f.text_field :name, class: "block w-full mt-1 rounded-lg border-gray-400", autofocus: true %>
-        <p class="field_with_errors text-right"><%= @board.errors.full_messages_for(:name).first %></p>
+  <h2 class="my-8 text-center text-3xl font-bold">ボード追加</h2>
+  <%= form_with model: @board, url: workspace_boards_path, class: "space-y-4" do |f| %>
+    <div>
+      <%= f.label :name, class: "block font-bold" %>
+      <%= f.text_field :name, class: "block w-full mt-1 rounded-lg border-gray-400", autofocus: true %>
+      <p class="field_with_errors text-right"><%= @board.errors.full_messages_for(:name).first %></p>
+    </div>
 
-        <%= f.label :color, class: "block font-bold" %>
-        <%= f.color_field :color %>
-        <p class="field_with_errors text-right"><%= @board.errors.full_messages_for(:color).first %></p>
-      </div>
+    <div>
+      <%= f.label :color, class: "block font-bold" %>
+      <%= f.color_field :color %>
+      <p class="field_with_errors text-right"><%= @board.errors.full_messages_for(:color).first %></p>
+    </div>
 
-      <%= f.submit "作成", class: "w-full mt-6 py-2 bg-blue-500 border text-white" %>
-    <% end %>
-  </div>
+    <%= f.submit "作成", class: "w-full mt-4 py-2 bg-blue-500 border text-white" %>
+  <% end %>
 </div>
