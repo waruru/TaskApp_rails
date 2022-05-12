@@ -19,8 +19,8 @@
   <ul class="flex-grow flex overflow-x-scroll items-start mt-2 px-8 space-x-4">
     <% if @task_lists.present? %>
       <% @task_lists.each do |task_list| %>
-        <li class="flex-none w-64 px-3 py-2 rounded-lg border border-black bg-gray-300 shadow-md shadow-gray-400">
-          <span class="text-lg font-bold"><%= task_list.name %></span>
+        <li class="flex-none w-64 p-3 rounded-lg border border-black bg-gray-200 shadow-md shadow-gray-400">
+          <h3 class="text-lg font-bold"><%= task_list.name %></h3>
           <% if task_list.tasks.present? %>
             <ul class="mt-2 space-y-2">
               <% task_list.tasks.each do |task| %>
