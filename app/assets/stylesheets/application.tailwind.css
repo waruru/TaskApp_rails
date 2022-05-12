@@ -76,7 +76,15 @@
   }
 
   .line-link {
-    @apply underline text-base hover:text-lg
+    @apply underline text-base hover:text-lg;
+  }
+
+  .btn-3d {
+    @apply shadow hover:shadow-none shadow-gray-400 hover:translate-y-0.5;
+  }
+
+  .panel-3d {
+    @apply shadow-md shadow-gray-400 hover:shadow-gray-600 hover:-translate-y-1;
   }
 
   /* .btn-primary {
