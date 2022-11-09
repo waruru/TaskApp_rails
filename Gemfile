@@ -67,6 +67,10 @@ gem 'devise', '~> 4.8.1'
 # devise日本語化
 gem 'devise-i18n'
 
+gem 'oauth2', '~> 2.0.0'
+gem "omniauth-rails_csrf_protection"
+gem "omniauth-google-oauth2"
+
 # アプリ全体の日本語化
 gem 'rails-i18n'
 

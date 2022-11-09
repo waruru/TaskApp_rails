@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   devise_for :users, module: 'user/devise', controllers: {
     registrations: 'user/devise/registrations',
+    omniauth_callbacks: "user/devise/omniauth_callbacks"
   }
 
   resources :workspaces, only: [:index, :show, :new, :create, :destroy] do
